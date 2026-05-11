@@ -1,18 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
   <title>Wii Menu</title>
 
   <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 
 <div class="wii-menu">
 
-  <!-- top dots -->
+  <!-- TOP DOTS -->
+
   <div class="top-dots">
     <span class="active"></span>
     <span></span>
@@ -21,89 +25,109 @@
     <span></span>
   </div>
 
-  <!-- settings -->
+  <!-- SETTINGS -->
+
   <div class="settings-btn">
     ⚙
   </div>
 
-  <!-- arrow -->
+  <!-- MUTE -->
+
+  <div class="mute-btn" id="muteBtn">
+    🔊
+  </div>
+
+  <!-- ARROW -->
+
   <div class="page-arrow">
     ▶
   </div>
 
-  <!-- grid -->
+  <!-- CHANNEL GRID -->
+
   <div class="channel-grid">
 
     <div class="channel selected">
-      <img src="https://i.imgur.com/Ag6SOlL.png">
+      <img src="https://img.youtube.com/vi/5-E_0uhPzaE/maxresdefault.jpg">
     </div>
 
-    <div class="channel">
-      💿
-    </div>
+    <div class="channel">💿</div>
 
-    <div class="channel">
-      👨‍👩‍👧
-    </div>
+    <div class="channel">👨‍👩‍👧</div>
 
-    <div class="channel">
-      🔧
-    </div>
+    <div class="channel">🔧</div>
 
-    <div class="channel">
-      💬
-    </div>
+    <div class="channel">💬</div>
 
-    <div class="channel">
-      Wii
-    </div>
+    <div class="channel">Wii</div>
 
-    <div class="channel">
-      📊
-    </div>
+    <div class="channel">📊</div>
 
-    <div class="channel">
-      ♿
-    </div>
+    <div class="channel">♿</div>
 
-    <div class="channel">
-      ⚠
-    </div>
+    <div class="channel">⚠</div>
 
     <div class="channel empty"></div>
-
     <div class="channel empty"></div>
-
     <div class="channel empty"></div>
-
     <div class="channel empty"></div>
-
     <div class="channel empty"></div>
-
     <div class="channel empty"></div>
-
     <div class="channel empty"></div>
-
     <div class="channel empty"></div>
-
     <div class="channel empty"></div>
 
   </div>
 
-  <!-- bottom nav -->
+  <!-- BOTTOM GLOW -->
+
+  <div class="wave-bottom"></div>
+
+  <!-- BOTTOM BAR -->
+
   <div class="bottom-bar">
 
-    <div class="bottom-icon orange">☺</div>
+    <div class="bottom-left">
 
-    <div class="bottom-icon green">👨‍👩‍👧</div>
+      <div class="remote-btn">
+        🎮
+      </div>
 
-    <div class="bottom-icon yellow">🛍</div>
+    </div>
 
-    <div class="bottom-icon blue">🌐</div>
+    <div class="bottom-center">
 
-    <div class="bottom-icon cyan">💬</div>
+      <div class="time">
+        12:00 <span class="ampm">AM</span>
+      </div>
 
-    <div class="bottom-icon blue2">👍</div>
+      <div class="date">
+        Fri 1/1
+      </div>
+
+    </div>
+
+    <div class="bottom-right">
+
+      <div class="envelope">
+        ✉
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- HIDDEN WII MUSIC -->
+
+  <div id="musicContainer">
+
+    <iframe
+      src="https://www.youtube.com/embed/5-E_0uhPzaE?autoplay=1&loop=1&playlist=5-E_0uhPzaE"
+      title="Wii Music"
+      frameborder="0"
+      allow="autoplay"
+      allowfullscreen>
+    </iframe>
 
   </div>
 
