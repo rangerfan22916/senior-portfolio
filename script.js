@@ -10,12 +10,14 @@ document.querySelector('.date');
 const muteBtn =
 document.getElementById('muteBtn');
 
-let musicMuted = false;
-
 const musicFrame =
 document.querySelector('#musicContainer iframe');
 
-/* CLOCK */
+let musicMuted = false;
+
+/* =========================
+   CLOCK
+========================= */
 
 const updateTime = () => {
 
@@ -54,7 +56,9 @@ updateTime();
 
 setInterval(updateTime,1000);
 
-/* CHANNEL SELECT */
+/* =========================
+   CHANNEL SELECT
+========================= */
 
 channels.forEach(channel => {
 
@@ -73,7 +77,33 @@ channels.forEach(channel => {
 
 });
 
-/* MUTE BUTTON */
+/* =========================
+   LOADING SCREEN + MUSIC
+========================= */
+
+window.addEventListener('load', () => {
+
+  const loadingScreen =
+  document.getElementById('loadingScreen');
+
+  setTimeout(() => {
+
+    /* FADE OUT */
+
+    loadingScreen.classList.add('fade-out');
+
+    /* START MUSIC */
+
+    musicFrame.src =
+    "https://www.youtube.com/embed/5-E_0uhPzaE?autoplay=1&loop=1&playlist=5-E_0uhPzaE";
+
+  }, 4200);
+
+});
+
+/* =========================
+   MUTE BUTTON
+========================= */
 
 const toggleMusic = () => {
 
