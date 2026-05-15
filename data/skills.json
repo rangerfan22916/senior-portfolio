@@ -1,0 +1,32 @@
+{
+  "id": "skills",
+  "title": "Skills",
+  "view": "skills",
+  "items": [
+    {
+      "icon": "💻",
+      "label": "HTML & CSS",
+      "description": "Responsive layouts and Wii-inspired styling."
+    },
+    {
+      "icon": "⚡",
+      "label": "JavaScript",
+      "description": "Interactive features, page transitions, and menu behavior."
+    },
+    {
+      "icon": "🎨",
+      "label": "Design",
+      "description": "Creative UI work with attention to color, spacing, and typography."
+    },
+    {
+      "icon": "📱",
+      "label": "Responsive",
+      "description": "Layouts that adapt across desktop, tablet, and mobile screens."
+    },
+    {
+      "icon": "🧠",
+      "label": "Problem Solving",
+      "description": "Planning, debugging, and building polished web experiences."
+    }
+  ]
+}

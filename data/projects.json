@@ -1,0 +1,62 @@
+{
+  "id": "projects",
+  "title": "Projects",
+  "view": "projects",
+  "default": "all",
+  "years": [
+    {
+      "id": "sophomore",
+      "label": "Sophomore",
+      "projects": [
+        {
+          "title": "RIP Replit",
+          "description": "We used Replit this year, but now it's dead — this is the headstone for that era.",
+          "link": "https://replit.com",
+          "image": "imgs/rip.png"
+        }
+      ]
+    },
+    {
+      "id": "junior",
+      "label": "Junior",
+      "projects": [
+        {
+          "title": "Wii Portfolio",
+          "description": "A retro Wii-inspired portfolio website design.",
+          "link": "https://your-site.com",
+          "image": "imgs/wii.png"
+        },
+        {
+          "title": "Enzo Ferrari Site",
+          "description": "A biography and design tribute to Enzo Ferrari.",
+          "link": "https://your-site.com",
+          "image": "imgs/ferrari.png"
+        },
+        {
+          "title": "Advanced Web Design",
+          "description": "Modern web design exercises and builds.",
+          "link": "https://your-site.com",
+          "image": "imgs/web.png"
+        },
+        {
+          "title": "Ferrari Biography",
+          "description": "Informative Ferrari history page.",
+          "link": "https://your-site.com",
+          "image": "imgs/bio.png"
+        }
+      ]
+    },
+    {
+      "id": "senior",
+      "label": "Senior",
+      "projects": [
+        {
+          "title": "Future Project",
+          "description": "Coming soon...",
+          "link": "",
+          "image": "imgs/future.png"
+        }
+      ]
+    }
+  ]
+}

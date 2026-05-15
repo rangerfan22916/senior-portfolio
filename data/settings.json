@@ -1,0 +1,10 @@
+{
+  "id": "settings",
+  "title": "Extras",
+  "view": "text",
+  "content": [
+    "This is a small extras page for the bottom-left star button.",
+    "Think of it like bonus info: menu design choices, favorite features, and future polish ideas.",
+    "You can update this later with your own notes or project theme settings."
+  ]
+}

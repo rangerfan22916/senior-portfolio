@@ -1,0 +1,15 @@
+{
+  "id": "contact",
+  "title": "Contact",
+  "view": "links",
+  "links": [
+    {
+      "label": "Email Drew",
+      "href": "mailto:lichtenthaldrew@gmail.com"
+    },
+    {
+      "label": "Send a Message",
+      "href": "https://mail.google.com/mail/?view=cm&fs=1&to=lichtenthaldrew@gmail.com"
+    }
+  ]
+}

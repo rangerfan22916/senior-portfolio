@@ -717,7 +717,255 @@ body{
   border:none;
 }
 
-/* MOBILE */
+.sub-page{
+  position:fixed;
+  inset:0;
+  z-index:100;
+  display:none;
+  flex-direction:column;
+  background:
+    linear-gradient(
+      to bottom,
+      #f7fbff 0%,
+      #e9f5ff 50%,
+      #f2f7fb 100%
+    );
+  padding:24px;
+  overflow:auto;
+}
+
+.sub-page.active{
+  display:flex;
+}
+
+.sub-header{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  margin-bottom:22px;
+}
+
+.back-btn{
+  display:inline-flex;
+  width:56px;
+  height:56px;
+  border-radius:18px;
+  background:#ffffff;
+  border:2px solid #d0d0d0;
+  justify-content:center;
+  align-items:center;
+  text-decoration:none;
+  color:#444;
+  font-size:26px;
+  box-shadow:0 10px 20px rgba(0,0,0,.08);
+}
+
+.sub-title{
+  font-size:32px;
+  font-weight:700;
+  color:#314455;
+}
+
+.about-content{
+  flex:1;
+  display:grid;
+  grid-template-columns:minmax(300px,320px) 1fr;
+  gap:26px;
+  align-items:center;
+  padding:12px;
+}
+
+.about-image-panel,
+.about-text-panel{
+  width:100%;
+}
+
+.about-image-panel{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  max-width:360px;
+}
+
+.about-mii{
+  width:100%;
+  max-height:360px;
+  object-fit:cover;
+  border-radius:28px;
+  border:4px solid #ffffff;
+  box-shadow:0 20px 40px rgba(0,0,0,.12);
+}
+
+.about-text-panel{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  gap:14px;
+  padding:24px;
+  background:#ffffff;
+  border-radius:30px;
+  border:2px solid #d3e7f4;
+  box-shadow:0 18px 32px rgba(0,0,0,.08);
+}
+
+.skill-card{
+  display:flex;
+  gap:16px;
+  background:#f5fbff;
+  border:2px solid #d8eaf4;
+  border-radius:22px;
+  padding:18px;
+  align-items:center;
+}
+
+.skill-icon{
+  width:64px;
+  height:64px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:32px;
+  border-radius:24px;
+  background:#ffffff;
+  border:2px solid #cfeaf7;
+}
+
+.skill-label{
+  font-size:20px;
+  font-weight:700;
+  color:#2d4f6b;
+  margin-bottom:6px;
+}
+
+.skill-copy{
+  font-size:16px;
+  color:#516573;
+}
+
+.skills-grid{
+  display:grid;
+  gap:16px;
+}
+
+.page-view-content{
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+  padding:12px;
+}
+
+.about-text-panel h1{
+  font-size:42px;
+  margin:0;
+  color:#223047;
+}
+
+.about-text-panel p{
+  font-size:18px;
+  line-height:1.7;
+  color:#4d5f71;
+  margin:0;
+}
+
+.project-tabs{
+  display:flex;
+  flex-wrap:wrap;
+  gap:14px;
+  margin-bottom:22px;
+}
+
+.project-tab{
+  padding:14px 22px;
+  border-radius:999px;
+  border:2px solid #d0d0d0;
+  background:#f5fbff;
+  color:#3c5a71;
+  font-weight:700;
+  cursor:pointer;
+  transition:.15s ease;
+}
+
+.project-tab:hover{
+  background:#e1f2ff;
+  border-color:#8ad5ff;
+}
+
+.project-tab.active{
+  background:#63dfff;
+  border-color:#2bb8ff;
+  color:#ffffff;
+}
+
+.projects-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:18px;
+}
+
+.project-card{
+  flex-direction:column;
+  align-items:flex-start;
+  justify-content:center;
+  text-decoration:none;
+  color:#314455;
+  padding:18px;
+}
+
+.project-card:hover{
+  transform:scale(1.02);
+}
+
+.project-card-title{
+  font-size:22px;
+  font-weight:700;
+  margin-bottom:10px;
+}
+
+.project-card-copy{
+  font-size:16px;
+  margin-bottom:10px;
+  color:#5d6f82;
+}
+
+.project-card-year{
+  font-size:14px;
+  color:#7b8ea1;
+}
+
+.page-view-content{
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+  padding:12px;
+}
+
+.page-list{
+  list-style:disc inside;
+  color:#4d5f71;
+  line-height:1.8;
+}
+
+.link-grid{
+  display:grid;
+  gap:14px;
+}
+
+.page-link{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:16px 20px;
+  background:#f5fbff;
+  border:2px solid #d0e6f4;
+  border-radius:18px;
+  color:#1f4f6e;
+  text-decoration:none;
+  transition:.15s ease;
+}
+
+.page-link:hover{
+  background:#e1f2ff;
+}
 
 @media(max-width:900px){
 
@@ -740,4 +988,22 @@ body{
   .loading-bar{
     width:85vw;
   }
+
+  .projects-grid{
+    grid-template-columns:1fr;
+  }
+
+  .about-content{
+    padding:8px;
+  }
+  .about-mii{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+
+  opacity:1;
+  transform:scale(1);
+
+  transition:0.35s ease;
+}
 }

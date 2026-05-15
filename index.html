@@ -1,43 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-  <title>Drew's Wii Portfolio</title>
-
-  <link rel="stylesheet" href="style.css">
-
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Drew's Wii Portfolio</title>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- =========================
-     LOADING SCREEN
-========================= -->
-
+<!-- LOADING SCREEN -->
 <div id="loadingScreen">
-
   <div class="loading-glow"></div>
 
   <div class="loading-content">
-
-    <div class="wii-logo">
-      DREW'S
-    </div>
-
-    <div class="portfolio-text">
-      PORTFOLIO
-    </div>
+    <div class="wii-logo">DREW'S</div>
+    <div class="portfolio-text">PORTFOLIO</div>
 
     <div class="loading-bar">
       <div class="loading-fill"></div>
     </div>
 
-    <div class="loading-text">
-      Loading Channels...
-    </div>
+    <div class="loading-text">Loading Channels...</div>
 
     <div class="loading-dots">
       <span class="active"></span>
@@ -45,102 +29,36 @@
       <span></span>
       <span></span>
     </div>
-
   </div>
-
 </div>
 
-<!-- =========================
-     MAIN WII MENU
-========================= -->
-
-<div class="wii-menu">
-
-  <!-- TOP DOTS -->
+<!-- MAIN MENU -->
+<div class="wii-menu" id="mainMenu">
 
   <div class="top-dots">
-    <span class="active"></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
+    <span class="active"></span><span></span><span></span><span></span><span></span>
   </div>
 
-  <!-- SETTINGS -->
+  <div class="settings-btn" data-page="settings">★</div>
+  <div class="mute-btn" id="muteBtn">🔊</div>
 
-  <div class="settings-btn">
-    ⚙
-  </div>
-
-  <!-- MUTE -->
-
-  <div class="mute-btn" id="muteBtn">
-    🔊
-  </div>
-
-  <!-- ARROW -->
-
-  <div class="page-arrow">
-    ▶
-  </div>
-
-  <!-- CHANNEL GRID -->
+  <div class="page-arrow">▶</div>
 
   <div class="channel-grid">
 
-    <!-- FEATURED -->
-
-    <div class="channel selected">
-      <img src="https://img.youtube.com/vi/5-E_0uhPzaE/maxresdefault.jpg">
+    <div id="aboutChannel" class="channel selected about-me-channel" data-page="about">
+      <img src="imgs/Screenshot 2026-05-08 091402.png">
     </div>
 
-    <!-- ABOUT ME -->
-
-    <div class="channel about-me-channel">
-
-      <!-- ✅ UPDATED MII IMAGE -->
-      <img src="imgs/Screenshot 2026-05-08 091402.png" alt="Drew Mii">
-
-      <div class="channel-label">
-        ABOUT ME
-      </div>
-
-    </div>
-
-    <!-- OTHER CHANNELS -->
-
-    <div class="channel">
+    <div id="projectsChannel" class="channel" data-page="projects">
       PROJECTS
     </div>
 
-    <div class="channel">
-      CONTACT
-    </div>
+    <div class="channel" data-page="contact">CONTACT</div>
+    <div class="channel" data-page="skills">SKILLS</div>
+    <div class="channel" data-page="resume">RESUME</div>
+    <div class="channel" data-page="future">FUTURE</div>
 
-    <div class="channel">
-      SKILLS
-    </div>
-
-    <div class="channel">
-      RESUME
-    </div>
-
-    <div class="channel">
-      GITHUB
-    </div>
-
-    <div class="channel">
-      MEDIA
-    </div>
-
-    <div class="channel">
-      FUTURE
-    </div>
-
-    <!-- EMPTY CHANNELS -->
-
-    <div class="channel empty"></div>
-    <div class="channel empty"></div>
     <div class="channel empty"></div>
     <div class="channel empty"></div>
     <div class="channel empty"></div>
@@ -150,60 +68,72 @@
     <div class="channel empty"></div>
 
   </div>
-
-  <!-- CURVED BOTTOM -->
 
   <div class="wave-bottom"></div>
 
-  <!-- BOTTOM BAR -->
-
   <div class="bottom-bar">
-
-    <div class="bottom-left">
-      <div class="remote-btn">🎮</div>
-    </div>
+    <div class="remote-btn">🎮</div>
 
     <div class="bottom-center">
-
-      <div class="time">
-        12:00 <span class="ampm">AM</span>
-      </div>
-
-      <div class="date">
-        Fri 1/1
-      </div>
-
+      <div class="time">12:00 <span class="ampm">AM</span></div>
+      <div class="date">Fri 1/1</div>
     </div>
 
-    <div class="bottom-right">
+    <a class="envelope"
+       href="https://mail.google.com/mail/?view=cm&fs=1&to=lichtenthaldrew@gmail.com&su=Hello%20Drew&body=Hey%20Drew!"
+       target="_blank">✉</a>
+  </div>
+</div>
 
-      <a class="envelope"
-         href="https://mail.google.com/mail/?view=cm&fs=1&to=lichtenthaldrew@gmail.com&su=Hello%20Drew&body=Hey%20Drew!%20I%20visited%20your%20Wii%20portfolio."
-         target="_blank">
-        ✉
-      </a>
-
-    </div>
-
+<!-- ABOUT -->
+<div class="sub-page" id="aboutPage">
+  <div class="sub-header">
+    <a class="back-btn" href="#" onclick="closeSubPage();return false;">◀</a>
+    <div class="sub-title">ABOUT ME</div>
   </div>
 
-  <!-- MUSIC -->
+  <div class="about-content" id="aboutContentContainer"></div>
+</div>
 
-  <div id="musicContainer">
-
-    <iframe
-      src=""
-      title="Wii Music"
-      frameborder="0"
-      allow="autoplay"
-      allowfullscreen>
-    </iframe>
-
+<!-- ABOUT TEXT -->
+<div class="sub-page" id="aboutTextPage">
+  <div class="sub-header">
+    <a class="back-btn" href="#" onclick="closeSubPage();return false;">◀</a>
+    <div class="sub-title">ABOUT ME</div>
   </div>
 
+  <div class="about-text-content">
+    <h1>Drew Lichtenthal</h1>
+    <p>Senior at Marlboro High School.</p>
+    <p>Goalie, web designer, creative developer.</p>
+    <p>Inspired by Wii-style UI design.</p>
+  </div>
+</div>
+
+<!-- PROJECTS -->
+<div class="sub-page" id="projectsPage">
+
+  <div class="sub-header">
+    <a class="back-btn" href="#" onclick="closeSubPage();return false;">◀</a>
+    <div class="sub-title">PROJECTS</div>
+  </div>
+
+  <div class="project-tabs" id="projectTabs"></div>
+  <div class="projects-grid" id="projectsGrid"></div>
+</div>
+
+<div class="sub-page" id="pageViewer">
+  <div class="sub-header">
+    <a class="back-btn" href="#" onclick="closeSubPage();return false;">◀</a>
+    <div class="sub-title" id="pageViewerTitle"></div>
+  </div>
+  <div class="page-view-content" id="pageViewerContent"></div>
+</div>
+
+<div id="musicContainer">
+  <iframe title="Background Music Player" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
 </div>
 
 <script src="script.js"></script>
-
 </body>
 </html>
