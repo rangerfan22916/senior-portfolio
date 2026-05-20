@@ -297,20 +297,21 @@ function showYear(year,btn){
 
   projectsGrid.innerHTML = renderCards(projects);
 
-  // CLICK OPEN WEBSITE
-  projectsGrid.querySelectorAll(".project-card").forEach(card=>{
+    // CLICK OPEN PROJECT VIEWER
+    projectsGrid.querySelectorAll(".project-card").forEach(card=>{
 
-    card.addEventListener("click",()=>{
+      card.addEventListener("click",()=>{
 
-      const link = card.dataset.link;
+        const link = card.dataset.link;
+        const title = card.dataset.title;
 
-      if(link){
-        window.open(link,"_blank");
-      }
+        if(link){
+          openProjectViewer(title, link);
+        }
+
+      });
 
     });
-
-  });
 
 }
 
@@ -320,6 +321,7 @@ function renderCards(projects){
 
     <div class="channel project-card"
          data-link="${p.link || ''}">
+        data-title="${p.title || ''}">
 
       <div class="project-card-image">
         <img src="${p.image || 'imgs/default.png'}">
@@ -346,6 +348,27 @@ function renderCards(projects){
 }
 
 /* =========================
+    PROJECT VIEWER
+  ========================= */
+  function openProjectViewer(title, link){
+
+    if(!link) return;
+
+    const projectViewer = document.getElementById('projectViewer');
+    const projectViewerTitle = document.getElementById('projectViewerTitle');
+    const projectIframe = document.getElementById('projectIframe');
+    const visitBtn = document.getElementById('visitProjectBtn');
+
+    projectViewerTitle.textContent = title || 'Project';
+    projectIframe.src = link;
+    visitBtn.href = link;
+
+    projectViewer.style.display = "flex";
+    setTimeout(()=>projectViewer.classList.add("active"),10);
+
+  }
+
+  /* =========================
    GENERIC PAGE VIEWER
 ========================= */
 function openGenericPage(pageKey){
