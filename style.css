@@ -985,6 +985,31 @@ a:active,
   padding:18px;
 }
 
+.project-card-image{
+  position:relative;
+  width:100%;
+  height:200px;
+  border-radius:20px;
+  overflow:hidden;
+  margin-bottom:18px;
+  background:#f5fbff;
+}
+
+.project-card-image iframe,
+.project-card-image img{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  border:none;
+  display:block;
+}
+
+.project-card-image iframe{
+  overflow:hidden;
+}
+
 .project-card:hover{
   transform:scale(1.02);
 }

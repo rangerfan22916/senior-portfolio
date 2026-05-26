@@ -10,9 +10,9 @@
       "projects": [
         {
           "title": "RIP Replit",
-          "description": "We used Replit this year, but now it's dead — this is the headstone for that era.",
-          "link": "https://replit.com",
-          "image": "imgs/rip.png"
+          "image": "imgs\rip.png",
+          "link": "imgs\rip.png"
+
         }
       ]
     },
@@ -21,28 +21,64 @@
       "label": "Junior",
       "projects": [
         {
-          "title": "Wii Portfolio",
-          "description": "A retro Wii-inspired portfolio website design.",
-          "link": "https://your-site.com",
-          "image": "imgs/wii.png"
+          "title": "Summer Tainment",
+          "link": "https://rangerfan22916.github.io/summer-tainment-site/",
+          "image": ""
         },
         {
           "title": "Enzo Ferrari Site",
-          "description": "A biography and design tribute to Enzo Ferrari.",
-          "link": "https://your-site.com",
-          "image": "imgs/ferrari.png"
+          "link": "https://rangerfan22916.github.io/Octobermonthlywebsite/index.html",
+          "image": ""
         },
         {
-          "title": "Advanced Web Design",
-          "description": "Modern web design exercises and builds.",
-          "link": "https://your-site.com",
-          "image": "imgs/web.png"
+          "title": "Mad Libs",
+          "link": "https://rangerfan22916.github.io/novembermonthlywebsite/",
+          "image": ""
         },
         {
-          "title": "Ferrari Biography",
-          "description": "Informative Ferrari history page.",
-          "link": "https://your-site.com",
-          "image": "imgs/bio.png"
+          "title": "Name Generator",
+          "link": "https://rangerfan22916.github.io/december-monthly/",
+          "image": ""
+        },
+        {
+          "title": "Rock Paper Scissors Game",
+          "link": "https://rangerfan22916.github.io/rockpaperscizzors/",
+          "image": ""
+        },
+        {
+          "title": "Presidential Site",
+          "link": "https://rangerfan22916.github.io/president-monthly/",
+          "image": ""
+
+        },
+         {
+          "title": "Hangman Game",
+          "link": "https://rangerfan22916.github.io/march-monthly/",
+          "image": ""
+          
+        },
+         {
+          "title": "Little Bird Toys",
+          "link": "https://rangerfan22916.github.io/june-monthly/",
+          "image": ""
+      },
+      {
+          "title": "Maple Leafs Site",
+          "link": "https://rangerfan22916.github.io/may-monthly/",
+          "image": ""
+          
+        },
+        {
+          "title": "halloween animation",
+          "link": "https://rangerfan22916.github.io/tca1-pt-2/",
+          "image": ""
+          
+        },
+        {
+          "title": "Magic 8 Ball",
+          "link": "https://rangerfan22916.github.io/custom8ball/",
+          "image": ""
+          
         }
       ]
     },
@@ -51,10 +87,39 @@
       "label": "Senior",
       "projects": [
         {
-          "title": "Future Project",
-          "description": "Coming soon...",
-          "link": "",
-          "image": "imgs/future.png"
+          "title": "college recruitment site ",
+          "link": "https://rangerfan22916.github.io/college-recruitment/",
+          "image": ""
+        },
+        {
+          "title": "schedule app",
+          "link": "https://rangerfan22916.github.io/2.04---Schedule-Project/",
+          "image": ""
+        },
+        {
+          "title": "National park/Ancient wonders site",
+          "link": "https://rangerfan22916.github.io/NJIT-Project-1-Project/",
+          "image": ""
+        },
+        {
+          "title": "Movie Poster Gallery",
+          "link": "https://rangerfan22916.github.io/NJIT-Project-2-Movie-Poster-Gallery/",
+          "image": ""
+        },
+        {
+          "title": "Winter Holiday Site",
+          "link": "https://rangerfan22916.github.io/Winter-Holiday/",
+          "image": ""
+        },
+        {
+          "title": "college guide",
+          "link": "https://rangerfan22916.github.io/MRHS-Website-Design-Challenge/",
+          "image": ""
+        },
+        {
+          "title": "Client Website",
+          "link": "https://rangerfan22916.github.io/HairbyToni/",
+          "image": ""
         }
       ]
     }

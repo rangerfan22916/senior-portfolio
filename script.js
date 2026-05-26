@@ -320,20 +320,14 @@ function renderCards(projects){
   return projects.map(p=>`
 
     <div class="channel project-card"
-         data-link="${p.link || ''}">
-        data-title="${p.title || ''}">
+         data-link="${p.link || ''}"
+         data-title="${p.title || ''}">
 
       <div class="project-card-image">
-        <img src="${p.image || 'imgs/default.png'}">
+        <img src="${p.image || 'imgs/default.png'}" alt="${p.title}">
       </div>
 
       <div class="project-card-title">${p.title}</div>
-
-      ${p.description ? `
-        <div class="project-card-copy">
-          ${p.description}
-        </div>
-      `:''}
 
       ${p.year ? `
         <div class="project-card-year">
@@ -394,7 +388,7 @@ function openGenericPage(pageKey){
 ========================= */
 function closeSubPage(){
 
-  [aboutPage,projectsPage,pageViewer,aboutTextPage]
+  [aboutPage,projectsPage,pageViewer,projectViewer,aboutTextPage]
     .forEach(p=>{
 
       if(!p) return;
