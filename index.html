@@ -13,17 +13,13 @@
   <!-- LOADING SCREEN -->
   <div id="loadingScreen">
     <div class="loading-glow"></div>
-
     <div class="loading-content">
       <div class="wii-logo">DREW'S</div>
       <div class="portfolio-text">PORTFOLIO</div>
-
       <div class="loading-bar">
         <div class="loading-fill"></div>
       </div>
-
       <div class="loading-text">Loading Channels...</div>
-
       <div class="loading-dots">
         <span class="active"></span>
         <span></span>
@@ -47,18 +43,46 @@
 
     <div class="channel-grid">
 
+      <!-- ABOUT ME — profile photo, not zoomed -->
       <div id="aboutChannel" class="channel selected about-me-channel" data-page="about">
-        <img src="imgs/Screenshot 2026-05-08 091402.png">
+        <img src="imgs/Screenshot 2026-05-08 091402.png" class="channel-cover-img">
+        <div class="channel-label-overlay">ABOUT ME</div>
       </div>
 
-      <div id="projectsChannel" class="channel" data-page="projects">
-        PROJECTS
+      <!-- PROJECTS -->
+      <div class="channel channel-projects" data-page="projects">
+        <div class="channel-icon-wrap">🖥️</div>
+        <div class="channel-card-label">PROJECTS</div>
+        <div class="channel-card-sub">View my work</div>
       </div>
 
-      <div class="channel" data-page="contact">CONTACT</div>
-      <div class="channel" data-page="skills">SKILLS</div>
-      <div class="channel" data-page="resume">RESUME</div>
-      <div class="channel" data-page="future">FUTURE</div>
+      <!-- CONTACT -->
+      <div class="channel channel-contact" data-page="contact">
+        <div class="channel-icon-wrap">✉️</div>
+        <div class="channel-card-label">CONTACT</div>
+        <div class="channel-card-sub">Get in touch</div>
+      </div>
+
+      <!-- SKILLS -->
+      <div class="channel channel-skills" data-page="skills">
+        <div class="channel-icon-wrap">⚡</div>
+        <div class="channel-card-label">SKILLS</div>
+        <div class="channel-card-sub">What I know</div>
+      </div>
+
+      <!-- RESUME -->
+      <div class="channel channel-resume" data-page="resume">
+        <div class="channel-icon-wrap">📄</div>
+        <div class="channel-card-label">RESUME</div>
+        <div class="channel-card-sub">Download CV</div>
+      </div>
+
+      <!-- FUTURE -->
+      <div class="channel channel-future" data-page="future">
+        <div class="channel-icon-wrap">🚀</div>
+        <div class="channel-card-label">FUTURE</div>
+        <div class="channel-card-sub">What's next</div>
+      </div>
 
       <div class="channel empty"></div>
       <div class="channel empty"></div>
@@ -74,64 +98,42 @@
 
     <div class="bottom-bar">
       <div class="remote-btn">🎮</div>
-
       <div class="bottom-center">
         <div class="time">12:00 <span class="ampm">AM</span></div>
         <div class="date">Fri 1/1</div>
       </div>
-
       <a class="envelope"
         href="https://mail.google.com/mail/?view=cm&fs=1&to=lichtenthaldrew@gmail.com&su=Hello%20Drew&body=Hey%20Drew!"
         target="_blank">✉</a>
     </div>
   </div>
 
-  <!-- ABOUT -->
+  <!-- =====================
+       ABOUT PAGE
+  ===================== -->
   <div class="sub-page" id="aboutPage">
     <div class="sub-header">
       <a class="back-btn" href="#" onclick="closeSubPage();return false;">◀</a>
       <div class="sub-title">ABOUT ME</div>
     </div>
-
     <div class="about-content" id="aboutContentContainer"></div>
   </div>
 
-  <!-- ABOUT TEXT -->
-  <div class="sub-page" id="aboutTextPage">
-    <div class="sub-header">
-      <a class="back-btn" href="#" onclick="closeSubPage();return false;">◀</a>
-      <div class="sub-title">ABOUT ME</div>
-    </div>
-
-    <div class="about-text-content">
-      <h1>Drew Lichtenthal</h1>
-      <p>Senior at Marlboro High School.</p>
-      <p>Goalie, web designer, creative developer.</p>
-      <p>Inspired by Wii-style UI design.</p>
-    </div>
-  </div>
-
-  <!-- PROJECTS -->
+  <!-- =====================
+       PROJECTS PAGE
+  ===================== -->
   <div class="sub-page" id="projectsPage">
-
     <div class="sub-header">
       <a class="back-btn" href="#" onclick="closeSubPage();return false;">◀</a>
       <div class="sub-title">PROJECTS</div>
     </div>
-
     <div class="project-tabs" id="projectTabs"></div>
     <div class="projects-grid" id="projectsGrid"></div>
   </div>
 
-  <div class="sub-page" id="pageViewer">
-    <div class="sub-header">
-      <a class="back-btn" href="#" onclick="closeSubPage();return false;">◀</a>
-      <div class="sub-title" id="pageViewerTitle"></div>
-    </div>
-    <div class="page-view-content" id="pageViewerContent"></div>
-  </div>
-
-  <!-- PROJECT VIEWER -->
+  <!-- =====================
+       PROJECT VIEWER
+  ===================== -->
   <div class="sub-page" id="projectViewer">
     <div class="sub-header">
       <a class="back-btn" href="#" onclick="closeSubPage();return false;">◀</a>
@@ -143,6 +145,449 @@
     </div>
   </div>
 
+  <!-- =====================
+       CONTACT PAGE
+  ===================== -->
+  <div class="sub-page" id="contactPage">
+    <div class="sub-header">
+      <a class="back-btn" href="#" onclick="closeSubPage();return false;">◀</a>
+      <div class="sub-title">CONTACT</div>
+    </div>
+    <div class="contact-content">
+      <div class="contact-intro">
+        <h2>Let's connect!</h2>
+        <p>Whether it's a collab, a question, or just saying hi — my inbox is always open.</p>
+      </div>
+      <div class="contact-cards">
+        <a class="contact-card" href="https://mail.google.com/mail/?view=cm&fs=1&to=lichtenthaldrew@gmail.com&su=Hello%20Drew&body=Hey%20Drew!" target="_blank">
+          <div class="contact-card-icon">✉️</div>
+          <div class="contact-card-info">
+            <div class="contact-card-label">Email</div>
+            <div class="contact-card-value">lichtenthaldrew@gmail.com</div>
+          </div>
+          <div class="contact-card-arrow">↗</div>
+        </a>
+        <a class="contact-card" href="https://github.com/" target="_blank">
+          <div class="contact-card-icon">🐙</div>
+          <div class="contact-card-info">
+            <div class="contact-card-label">GitHub</div>
+            <div class="contact-card-value">View my repositories</div>
+          </div>
+          <div class="contact-card-arrow">↗</div>
+        </a>
+        <a class="contact-card" href="tel:7322211723">
+          <div class="contact-card-icon">📞</div>
+          <div class="contact-card-info">
+            <div class="contact-card-label">Phone</div>
+            <div class="contact-card-value">(732) 221-1723</div>
+          </div>
+          <div class="contact-card-arrow">↗</div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- =====================
+       SKILLS PAGE
+  ===================== -->
+  <div class="sub-page" id="skillsPage">
+    <div class="sub-header">
+      <a class="back-btn" href="#" onclick="closeSubPage();return false;">◀</a>
+      <div class="sub-title">SKILLS</div>
+    </div>
+    <div class="skills-content">
+      <div class="skills-section">
+        <div class="skills-section-title">💻 Development</div>
+        <div class="skills-pills-grid">
+          <div class="skill-pill"><span class="skill-pill-icon">🌐</span>HTML & CSS</div>
+          <div class="skill-pill"><span class="skill-pill-icon">⚡</span>JavaScript</div>
+          <div class="skill-pill"><span class="skill-pill-icon">⚛️</span>React</div>
+          <div class="skill-pill"><span class="skill-pill-icon">🎨</span>UI Design</div>
+          <div class="skill-pill"><span class="skill-pill-icon">📱</span>Responsive Design</div>
+          <div class="skill-pill"><span class="skill-pill-icon">🔧</span>Git & GitHub</div>
+        </div>
+      </div>
+      <div class="skills-section">
+        <div class="skills-section-title">🎨 Design & Creative</div>
+        <div class="skills-pills-grid">
+          <div class="skill-pill"><span class="skill-pill-icon">✏️</span>Figma</div>
+          <div class="skill-pill"><span class="skill-pill-icon">🖼️</span>Photoshop</div>
+          <div class="skill-pill"><span class="skill-pill-icon">🎬</span>Video Editing</div>
+          <div class="skill-pill"><span class="skill-pill-icon">🎮</span>Game UI</div>
+        </div>
+      </div>
+      <div class="skills-section">
+        <div class="skills-section-title">🏒 Athletics</div>
+        <div class="skills-pills-grid">
+          <div class="skill-pill"><span class="skill-pill-icon">🥅</span>Ice Hockey Goalie</div>
+          <div class="skill-pill"><span class="skill-pill-icon">🥍</span>Lacrosse — Mid &amp; Attack</div>
+          <div class="skill-pill"><span class="skill-pill-icon">🏆</span>Team Leadership</div>
+          <div class="skill-pill"><span class="skill-pill-icon">🧠</span>Game Strategy</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =====================
+       RESUME PAGE
+  ===================== -->
+  <div class="sub-page" id="resumePage">
+    <div class="sub-header">
+      <a class="back-btn" href="#" onclick="closeSubPage();return false;">◀</a>
+      <div class="sub-title">RESUME</div>
+      <a class="visit-btn" href="resume.pdf" download="Drew_Lichtenthal_Resume.pdf">DOWNLOAD ↓</a>
+    </div>
+
+    <div class="resume-content">
+
+      <!-- HEADER CARD -->
+      <div class="resume-hero">
+        <div class="resume-hero-name">Drew Garrett Lichtenthal</div>
+        <div class="resume-hero-sub">Marlboro, NJ 07746</div>
+        <div class="resume-hero-links">
+          <a href="tel:7322211723" class="resume-hero-link">📞 732-221-1723</a>
+          <a href="mailto:lichtenthaldrew@gmail.com" class="resume-hero-link">✉️ lichtenthaldrew@gmail.com</a>
+        </div>
+      </div>
+
+      <div class="resume-grid">
+
+        <!-- LEFT COLUMN -->
+        <div class="resume-col">
+
+          <!-- EDUCATION -->
+          <div class="resume-section">
+            <div class="resume-section-title">🎓 Education</div>
+            <div class="resume-entry">
+              <div class="resume-entry-header">
+                <div class="resume-entry-org">Marlboro High School</div>
+                <div class="resume-entry-date">Grad. 2026</div>
+              </div>
+              <div class="resume-entry-role">Career & Technical Education</div>
+              <div class="resume-entry-body">Web Design Pathways Program (WDPP)</div>
+            </div>
+          </div>
+
+          <!-- WORK EXPERIENCE -->
+          <div class="resume-section">
+            <div class="resume-section-title">💼 Work Experience</div>
+
+            <div class="resume-entry">
+              <div class="resume-entry-header">
+                <div class="resume-entry-org">Drew Walks Dogs</div>
+                <div class="resume-entry-date">2024–Present</div>
+              </div>
+              <div class="resume-entry-role">Founder, President &amp; CEO</div>
+              <ul class="resume-entry-list">
+                <li>Built &amp; maintain a professional website to promote services and showcase testimonials</li>
+                <li>Operate a local dog walking service with a loyal client base via word-of-mouth &amp; online marketing</li>
+                <li>Manage scheduling, pricing, client communication, and payment processing</li>
+                <li>Consistently receive 5-star reviews for reliability and exceptional care</li>
+              </ul>
+            </div>
+
+            <div class="resume-entry">
+              <div class="resume-entry-header">
+                <div class="resume-entry-org">Country Roads Day Camp</div>
+                <div class="resume-entry-date">Summer 2025</div>
+              </div>
+              <div class="resume-entry-role">Counselor &amp; Special Needs Shadow</div>
+              <ul class="resume-entry-list">
+                <li>Mentored a group of children fostering a fun and safe environment</li>
+                <li>Provided dedicated daily assistance to a child with special needs</li>
+              </ul>
+            </div>
+
+            <div class="resume-entry">
+              <div class="resume-entry-header">
+                <div class="resume-entry-org">Babysitter</div>
+                <div class="resume-entry-date">2016–Present</div>
+              </div>
+              <div class="resume-entry-role">Independent</div>
+              <ul class="resume-entry-list">
+                <li>Supervised and cared for children in the absence of parents or regular caregivers</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- RIGHT COLUMN -->
+        <div class="resume-col">
+
+          <!-- VOLUNTEER -->
+          <div class="resume-section">
+            <div class="resume-section-title">🤝 Volunteer Experience</div>
+
+            <div class="resume-entry">
+              <div class="resume-entry-header">
+                <div class="resume-entry-org">Friendship Circle</div>
+                <div class="resume-entry-date">2019–Present</div>
+              </div>
+              <div class="resume-entry-role">Teen Volunteer &amp; Active Board Member</div>
+              <ul class="resume-entry-list">
+                <li>Assists with weekly programs providing social &amp; educational experiences for individuals with special needs</li>
+                <li>Organizes events, raises awareness, and advocates for inclusion</li>
+                <li>Annual mascot for Friendship Circle Walk</li>
+              </ul>
+            </div>
+
+            <div class="resume-entry">
+              <div class="resume-entry-header">
+                <div class="resume-entry-org">Marlboro Police Department</div>
+                <div class="resume-entry-date">2024–Present</div>
+              </div>
+              <div class="resume-entry-role">Police Cadet</div>
+              <ul class="resume-entry-list">
+                <li>Organized community outreach events and safety education programs</li>
+                <li>Participated in neighborhood patrols and crowd control at public events</li>
+                <li>Mentored younger cadets; gained experience through ride-alongs and briefings</li>
+              </ul>
+            </div>
+
+            <div class="resume-entry">
+              <div class="resume-entry-header">
+                <div class="resume-entry-org">Fulfill Food Bank</div>
+                <div class="resume-entry-date">2020–Present</div>
+              </div>
+              <div class="resume-entry-role">Monmouth &amp; Ocean Counties</div>
+              <ul class="resume-entry-list">
+                <li>Raises money and donates items for local food bank</li>
+              </ul>
+            </div>
+
+            <div class="resume-entry">
+              <div class="resume-entry-header">
+                <div class="resume-entry-org">Ronald McDonald House</div>
+                <div class="resume-entry-date">2012–Present</div>
+              </div>
+              <div class="resume-entry-role">Volunteer</div>
+              <ul class="resume-entry-list">
+                <li>Cooks meals and supplies everyday necessities for children and families in need</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- EXTRACURRICULARS -->
+          <div class="resume-section">
+            <div class="resume-section-title">🏆 Extracurricular Activities</div>
+
+            <div class="resume-entry">
+              <div class="resume-entry-header">
+                <div class="resume-entry-org">MHS Boys Ice Hockey</div>
+                <div class="resume-entry-date">4 Years</div>
+              </div>
+              <div class="resume-entry-role">Varsity Goalie — Assistant Captain (Senior Year)</div>
+              <ul class="resume-entry-list">
+                <li>5 days/week training commitment; annual Sportsmanship Award recipient</li>
+              </ul>
+            </div>
+
+            <div class="resume-entry">
+              <div class="resume-entry-header">
+                <div class="resume-entry-org">MHS Boys Lacrosse</div>
+                <div class="resume-entry-date">JV &amp; Varsity</div>
+              </div>
+              <div class="resume-entry-role">Middie &amp; Attack</div>
+              <ul class="resume-entry-list">
+                <li>5+ hrs/week training; annual Sportsmanship Award recipient</li>
+              </ul>
+            </div>
+
+            <div class="resume-entry">
+              <div class="resume-entry-header">
+                <div class="resume-entry-org">Bass Guitar</div>
+                <div class="resume-entry-date">7+ Years</div>
+              </div>
+              <div class="resume-entry-role">Scheduled Weekly Lessons</div>
+              <ul class="resume-entry-list">
+                <li>Reads music; formed a band and performed in seasonal recitals &amp; band shows</li>
+              </ul>
+            </div>
+
+            <div class="resume-entry">
+              <div class="resume-entry-header">
+                <div class="resume-entry-org">Marlboro USY &amp; BBYO</div>
+                <div class="resume-entry-date">Active Member</div>
+              </div>
+              <div class="resume-entry-role">Teen Youth Groups</div>
+            </div>
+
+            <div class="resume-entry">
+              <div class="resume-entry-header">
+                <div class="resume-entry-org">Hockey Fights Cancer</div>
+                <div class="resume-entry-date">Annual</div>
+              </div>
+              <div class="resume-entry-role">Fundraiser &amp; Participant</div>
+              <ul class="resume-entry-list">
+                <li>Raises money for cancer charities and research</li>
+              </ul>
+            </div>
+
+          </div>
+
+        </div>
+      </div><!-- /resume-grid -->
+
+    </div><!-- /resume-content -->
+  </div>
+
+  <!-- =====================
+       FUTURE PAGE
+  ===================== -->
+  <div class="sub-page" id="futurePage">
+    <div class="sub-header">
+      <a class="back-btn" href="#" onclick="closeSubPage();return false;">◀</a>
+      <div class="sub-title">FUTURE</div>
+    </div>
+    <div class="future-content">
+
+      <div class="future-hero">
+        <div class="future-hero-glow"></div>
+        <div class="future-hero-text">
+          <div class="future-tagline">Loading next chapter...</div>
+          <h1 class="future-headline">What's <span class="future-accent">Loading</span></h1>
+          <p class="future-sub">Senior year ends. The real game begins.</p>
+        </div>
+        <div class="future-progress-wrap">
+          <div class="future-progress-label">Senior Year Complete</div>
+          <div class="future-progress-bar"><div class="future-progress-fill"></div></div>
+          <div class="future-progress-pct">87%</div>
+        </div>
+      </div>
+
+      <div class="future-grid">
+
+        <div class="future-card future-card-college">
+          <div class="future-card-icon">🎓</div>
+          <div class="future-card-label">College</div>
+          <div class="future-card-body">Pursuing Computer Science with a focus on design and human-computer interaction. Looking for programs where creativity meets code.</div>
+          <div class="future-card-tag">Fall 2026</div>
+        </div>
+
+        <div class="future-card future-card-dev">
+          <div class="future-card-icon">🖥️</div>
+          <div class="future-card-label">Development Goals</div>
+          <div class="future-card-body">Build a SaaS product. Learn backend dev. Ship something that real people use daily.</div>
+          <div class="future-card-tag">Always Building</div>
+        </div>
+
+        <div class="future-card future-card-design">
+          <div class="future-card-icon">✨</div>
+          <div class="future-card-label">Dream Project</div>
+          <div class="future-card-body">A fully custom UI framework inspired by retro game consoles — Wii, GameCube, DS — rebuilt for the modern web.</div>
+          <div class="future-card-tag">In Progress</div>
+        </div>
+
+        <div class="future-card future-card-sports">
+          <div class="future-card-icon">🏒</div>
+          <div class="future-card-label">Athletics</div>
+          <div class="future-card-body">Ice Hockey Goalie and Lacrosse (Mid &amp; Attack) at Marlboro HS. Four years of varsity competition, assistant captain senior year. The discipline from the field carries straight to the screen.</div>
+          <div class="future-card-tag">Always Competing</div>
+        </div>
+
+      </div>
+
+      <div class="future-timeline">
+        <div class="future-timeline-title">The Road Ahead</div>
+        <div class="future-timeline-items">
+          <div class="future-tl-item">
+            <div class="future-tl-dot future-tl-done"></div>
+            <div class="future-tl-line"></div>
+            <div class="future-tl-text">
+              <strong>Built this portfolio</strong>
+              <span>2026</span>
+            </div>
+          </div>
+          <div class="future-tl-item">
+            <div class="future-tl-dot future-tl-active"></div>
+            <div class="future-tl-line"></div>
+            <div class="future-tl-text">
+              <strong>Graduate Marlboro HS</strong>
+              <span>June 2026</span>
+            </div>
+          </div>
+          <div class="future-tl-item">
+            <div class="future-tl-dot"></div>
+            <div class="future-tl-line"></div>
+            <div class="future-tl-text">
+              <strong>Start College</strong>
+              <span>Fall 2026</span>
+            </div>
+          </div>
+          <div class="future-tl-item">
+            <div class="future-tl-dot"></div>
+            <div class="future-tl-line"></div>
+            <div class="future-tl-text">
+              <strong>Ship first real product</strong>
+              <span>2027</span>
+            </div>
+          </div>
+          <div class="future-tl-item">
+            <div class="future-tl-dot"></div>
+            <div class="future-tl-line future-tl-line-last"></div>
+            <div class="future-tl-text">
+              <strong>???</strong>
+              <span>TBD — stay tuned</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================
+       SETTINGS PAGE
+  ===================== -->
+  <div class="sub-page" id="settingsPage">
+    <div class="sub-header">
+      <a class="back-btn" href="#" onclick="closeSubPage();return false;">◀</a>
+      <div class="sub-title">SETTINGS</div>
+    </div>
+    <div class="settings-content">
+      <div class="settings-row">
+        <div class="settings-row-label">🔊 Music</div>
+        <button class="settings-toggle-btn" id="settingsMuteBtn">Toggle Sound</button>
+      </div>
+      <div class="settings-row">
+        <div class="settings-row-label">🎨 Theme</div>
+        <div class="settings-row-value">Wii Classic Blue</div>
+      </div>
+      <div class="settings-row">
+        <div class="settings-row-label">📅 Version</div>
+        <div class="settings-row-value">v1.0 — May 2026</div>
+      </div>
+      <div class="settings-row">
+        <div class="settings-row-label">👤 Author</div>
+        <div class="settings-row-value">Drew Lichtenthal</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GENERIC PAGE VIEWER (fallback) -->
+  <div class="sub-page" id="pageViewer">
+    <div class="sub-header">
+      <a class="back-btn" href="#" onclick="closeSubPage();return false;">◀</a>
+      <div class="sub-title" id="pageViewerTitle"></div>
+    </div>
+    <div class="page-view-content" id="pageViewerContent"></div>
+  </div>
+
+  <!-- ABOUT TEXT PAGE (legacy) -->
+  <div class="sub-page" id="aboutTextPage">
+    <div class="sub-header">
+      <a class="back-btn" href="#" onclick="closeSubPage();return false;">◀</a>
+      <div class="sub-title">ABOUT ME</div>
+    </div>
+    <div class="about-text-content">
+      <h1>Drew Lichtenthal</h1>
+      <p>Senior at Marlboro High School.</p>
+      <p>Goalie, web designer, creative developer.</p>
+      <p>Inspired by Wii-style UI design.</p>
+    </div>
+  </div>
+
   <div id="musicContainer">
     <iframe id="musicFrame" title="Wii Home Music Player" width="560" height="315" frameborder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -151,5 +596,4 @@
 
   <script src="script.js"></script>
 </body>
-
 </html>
