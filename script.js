@@ -148,7 +148,17 @@ function openPage(pageKey) {
 function openDirectPage(el) {
   if (!el) return;
   el.style.display = "flex";
-  setTimeout(() => el.classList.add("active"), 10);
+  setTimeout(() => {
+    el.classList.add("active");
+    // animate skill bars if this is the skills page
+    if (el.id === "skillsPage") {
+      el.querySelectorAll(".skill-bar").forEach(bar => {
+        const target = bar.style.width;
+        bar.style.width = "0%";
+        setTimeout(() => { bar.style.width = target; }, 80);
+      });
+    }
+  }, 10);
 }
 
 /* =========================
@@ -241,44 +251,65 @@ function showYear(year, btn) {
     card.addEventListener("click", () => {
       const link = card.dataset.link;
       const title = card.dataset.title;
-      if (link && link !== "#") openProjectViewer(title, link);
+      if (link && link !== "#") openInlineViewer(title, link);
     });
   });
 }
 
 function renderCards(projects) {
   return projects.map((p) => `
-    <div class="channel project-card"
+    <div class="project-card"
          data-link="${p.link || ""}"
          data-title="${p.title || ""}">
-      <div class="project-card-image">
-        <img src="${p.image || "imgs/default.png"}" alt="${p.title}">
-      </div>
-      <div class="project-card-meta">
-        <div class="project-card-title">${p.title}</div>
-        ${p.description ? `<div class="project-card-copy">${p.description}</div>` : ""}
+      <div class="project-card-title">${p.title}</div>
+      ${p.description ? `<div class="project-card-copy">${p.description}</div>` : ""}
+      <div class="project-card-footer">
         ${p.year ? `<div class="project-card-year">${p.year}</div>` : ""}
+        ${p.link && p.link !== "#" ? `<div class="project-card-arrow">↗</div>` : ""}
       </div>
     </div>
   `).join("");
 }
 
 /* =========================
-   PROJECT VIEWER
+   INLINE PROJECT VIEWER
+   (loads site inside the projects page)
 ========================= */
-function openProjectViewer(title, link) {
+function openInlineViewer(title, link) {
   if (!link) return;
-  const projectViewer = document.getElementById("projectViewer");
-  const projectViewerTitle = document.getElementById("projectViewerTitle");
-  const projectIframe = document.getElementById("projectIframe");
-  const visitBtn = document.getElementById("visitProjectBtn");
 
-  projectViewerTitle.textContent = title || "Project";
-  projectIframe.src = link;
+  const grid    = document.getElementById("projectsGrid");
+  const tabs    = document.getElementById("projectTabs");
+  const viewer  = document.getElementById("inlineViewer");
+  const iframe  = document.getElementById("inlineIframe");
+  const label   = document.getElementById("inlineTitle");
+  const visitBtn = document.getElementById("inlineVisitBtn");
+
+  label.textContent = title || "Project";
   visitBtn.href = link;
+  iframe.src = link;
 
-  projectViewer.style.display = "flex";
-  setTimeout(() => projectViewer.classList.add("active"), 10);
+  // hide grid & tabs, show viewer
+  grid.style.display   = "none";
+  tabs.style.display   = "none";
+  viewer.style.display = "flex";
+}
+
+function closeInlineViewer() {
+  const grid   = document.getElementById("projectsGrid");
+  const tabs   = document.getElementById("projectTabs");
+  const viewer = document.getElementById("inlineViewer");
+  const iframe = document.getElementById("inlineIframe");
+
+  iframe.src = "";
+  viewer.style.display = "none";
+  grid.style.display   = "grid";
+  tabs.style.display   = "flex";
+}
+
+/* keep old function so nothing breaks */
+function openProjectViewer(title, link) {
+  openInlineViewer(title, link);
 }
 
 /* =========================
@@ -322,8 +353,24 @@ document.addEventListener("click", (e) => {
   const fp = document.getElementById("futurePage");
   if (fp && fp.classList.contains("active")) {
     const fill = fp.querySelector(".future-progress-fill");
+    const pct  = fp.querySelector(".future-progress-pct");
     if (fill && !fill.classList.contains("animated")) {
       fill.classList.add("animated");
+
+      const start    = new Date("2025-09-04");
+      const end      = new Date("2026-06-25");
+      const today    = new Date();
+      const total    = end - start;
+      const elapsed  = Math.min(Math.max(today - start, 0), total);
+      const percent  = Math.round((elapsed / total) * 100);
+
+      fill.style.transition = "none";
+      fill.style.width = "0%";
+      setTimeout(() => {
+        fill.style.transition = "width 2s cubic-bezier(.25,.46,.45,.94) 0.1s";
+        fill.style.width = percent + "%";
+        if (pct) pct.textContent = percent + "%";
+      }, 50);
     }
   }
 });

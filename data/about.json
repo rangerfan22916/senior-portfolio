@@ -1,11 +1,12 @@
 {
-  "id": "about",
   "title": "Drew Lichtenthal",
-  "view": "split",
   "image": "imgs/Screenshot 2026-05-08 091402.png",
   "description": [
-    "Senior at Marlboro High School.",
-    "Goalie, web designer, creative developer.",
-    "Inspired by Wii-style UI design."
+    "Senior at Marlboro High School, graduating 2026. Currently in the <strong>Web Design Pathways Program (WDPP)</strong> — a career and technical education track focused on building real web experiences.",
+    "I'm a <strong>creative developer</strong> who loves building things that feel alive. Inspired by Wii-style UI, retro game consoles, and interfaces that make people smile — this portfolio is proof of that.",
+    "Outside of code, I'm a <strong>Varsity Ice Hockey Goalie</strong> and <strong>Assistant Captain</strong> senior year. I also play Lacrosse (mid and attack) for Marlboro HS. Five days a week on the ice, even more time in front of a screen.",
+    "I run my own business — <strong>Drew Walks Dogs</strong> — where I handle everything from the website to scheduling, client communication, and the actual walking. Started from nothing, built a loyal client base.",
+    "I've been volunteering with <strong>Friendship Circle</strong> since 2019, helping individuals with special needs through weekly programs and events. Also a <strong>Marlboro Police Cadet</strong>, active since 2024.",
+    "Seven years of <strong>bass guitar</strong>, a band, recitals, and a whole lot of music. Currently chasing the next build."
   ]
 }

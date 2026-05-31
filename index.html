@@ -129,6 +129,18 @@
     </div>
     <div class="project-tabs" id="projectTabs"></div>
     <div class="projects-grid" id="projectsGrid"></div>
+
+    <!-- INLINE SITE VIEWER -->
+    <div id="inlineViewer" style="display:none; flex-direction:column; flex:1; gap:14px;">
+      <div class="inline-viewer-header">
+        <button class="inline-back-btn" onclick="closeInlineViewer()">◀ Back</button>
+        <div class="inline-viewer-title" id="inlineTitle"></div>
+        <a class="visit-btn" id="inlineVisitBtn" href="#" target="_blank">VISIT SITE ↗</a>
+      </div>
+      <div class="inline-viewer-frame">
+        <iframe id="inlineIframe" title="Project Preview"></iframe>
+      </div>
+    </div>
   </div>
 
   <!-- =====================
@@ -196,34 +208,81 @@
       <div class="sub-title">SKILLS</div>
     </div>
     <div class="skills-content">
-      <div class="skills-section">
-        <div class="skills-section-title">💻 Development</div>
-        <div class="skills-pills-grid">
-          <div class="skill-pill"><span class="skill-pill-icon">🌐</span>HTML & CSS</div>
-          <div class="skill-pill"><span class="skill-pill-icon">⚡</span>JavaScript</div>
-          <div class="skill-pill"><span class="skill-pill-icon">⚛️</span>React</div>
-          <div class="skill-pill"><span class="skill-pill-icon">🎨</span>UI Design</div>
-          <div class="skill-pill"><span class="skill-pill-icon">📱</span>Responsive Design</div>
-          <div class="skill-pill"><span class="skill-pill-icon">🔧</span>Git & GitHub</div>
+
+      <div class="skills-grid">
+
+        <div class="skill-card">
+          <div class="skill-card-icon" style="background:#fff3e0;">🌐</div>
+          <div class="skill-card-info">
+            <div class="skill-card-name">HTML &amp; CSS</div>
+            <div class="skill-card-desc">Semantic markup, layouts, animations, responsive design</div>
+          </div>
+          <div class="skill-bar-wrap"><div class="skill-bar" style="width:95%; background:#f97316;"></div></div>
         </div>
-      </div>
-      <div class="skills-section">
-        <div class="skills-section-title">🎨 Design & Creative</div>
-        <div class="skills-pills-grid">
-          <div class="skill-pill"><span class="skill-pill-icon">✏️</span>Figma</div>
-          <div class="skill-pill"><span class="skill-pill-icon">🖼️</span>Photoshop</div>
-          <div class="skill-pill"><span class="skill-pill-icon">🎬</span>Video Editing</div>
-          <div class="skill-pill"><span class="skill-pill-icon">🎮</span>Game UI</div>
+
+        <div class="skill-card">
+          <div class="skill-card-icon" style="background:#fefce8;">⚡</div>
+          <div class="skill-card-info">
+            <div class="skill-card-name">JavaScript</div>
+            <div class="skill-card-desc">DOM manipulation, events, fetch, async logic</div>
+          </div>
+          <div class="skill-bar-wrap"><div class="skill-bar" style="width:85%; background:#eab308;"></div></div>
         </div>
-      </div>
-      <div class="skills-section">
-        <div class="skills-section-title">🏒 Athletics</div>
-        <div class="skills-pills-grid">
-          <div class="skill-pill"><span class="skill-pill-icon">🥅</span>Ice Hockey Goalie</div>
-          <div class="skill-pill"><span class="skill-pill-icon">🥍</span>Lacrosse — Mid &amp; Attack</div>
-          <div class="skill-pill"><span class="skill-pill-icon">🏆</span>Team Leadership</div>
-          <div class="skill-pill"><span class="skill-pill-icon">🧠</span>Game Strategy</div>
+
+        <div class="skill-card">
+          <div class="skill-card-icon" style="background:#eff6ff;">⚛️</div>
+          <div class="skill-card-info">
+            <div class="skill-card-name">React</div>
+            <div class="skill-card-desc">Components, hooks, state management, props</div>
+          </div>
+          <div class="skill-bar-wrap"><div class="skill-bar" style="width:75%; background:#3b82f6;"></div></div>
         </div>
+
+        <div class="skill-card">
+          <div class="skill-card-icon" style="background:#f0fdf4;">🔧</div>
+          <div class="skill-card-info">
+            <div class="skill-card-name">Git &amp; GitHub</div>
+            <div class="skill-card-desc">Version control, commits, branches, repos</div>
+          </div>
+          <div class="skill-bar-wrap"><div class="skill-bar" style="width:80%; background:#22c55e;"></div></div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-card-icon" style="background:#fdf4ff;">🎨</div>
+          <div class="skill-card-info">
+            <div class="skill-card-name">UI / UX Design</div>
+            <div class="skill-card-desc">Wii-style interfaces, visual hierarchy, user experience</div>
+          </div>
+          <div class="skill-bar-wrap"><div class="skill-bar" style="width:90%; background:#a855f7;"></div></div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-card-icon" style="background:#fff1f2;">✏️</div>
+          <div class="skill-card-info">
+            <div class="skill-card-name">Figma</div>
+            <div class="skill-card-desc">Wireframing, prototyping, component design</div>
+          </div>
+          <div class="skill-bar-wrap"><div class="skill-bar" style="width:70%; background:#f43f5e;"></div></div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-card-icon" style="background:#e0f2fe;">📱</div>
+          <div class="skill-card-info">
+            <div class="skill-card-name">Responsive Design</div>
+            <div class="skill-card-desc">Mobile-first layouts, media queries, fluid grids</div>
+          </div>
+          <div class="skill-bar-wrap"><div class="skill-bar" style="width:88%; background:#0ea5e9;"></div></div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-card-icon" style="background:#f0fdf4;">🖥️</div>
+          <div class="skill-card-info">
+            <div class="skill-card-name">Web Design</div>
+            <div class="skill-card-desc">Full site builds, CTE Web Design Pathways Program</div>
+          </div>
+          <div class="skill-bar-wrap"><div class="skill-bar" style="width:92%; background:#10b981;"></div></div>
+        </div>
+
       </div>
     </div>
   </div>
@@ -235,7 +294,7 @@
     <div class="sub-header">
       <a class="back-btn" href="#" onclick="closeSubPage();return false;">◀</a>
       <div class="sub-title">RESUME</div>
-      <a class="visit-btn" href="resume.pdf" download="Drew_Lichtenthal_Resume.pdf">DOWNLOAD ↓</a>
+      <a class="visit-btn" href="imgs/resume.pdf" download="Drew_Lichtenthal_Resume.pdf">DOWNLOAD ↓</a>
     </div>
 
     <div class="resume-content">
@@ -433,7 +492,7 @@
   </div>
 
   <!-- =====================
-       FUTURE PAGE
+       FUTURE PAGE — IU THEMED
   ===================== -->
   <div class="sub-page" id="futurePage">
     <div class="sub-header">
@@ -442,12 +501,17 @@
     </div>
     <div class="future-content">
 
+      <!-- IU HERO BANNER -->
       <div class="future-hero">
         <div class="future-hero-glow"></div>
-        <div class="future-hero-text">
-          <div class="future-tagline">Loading next chapter...</div>
-          <h1 class="future-headline">What's <span class="future-accent">Loading</span></h1>
-          <p class="future-sub">Senior year ends. The real game begins.</p>
+        <div class="future-hero-stripes"></div>
+        <div class="future-hero-inner">
+          <div class="future-iu-badge">IU</div>
+          <div class="future-hero-text">
+            <div class="future-tagline">Committed — Fall 2026</div>
+            <h1 class="future-headline">Indiana <span class="future-accent">University</span></h1>
+            <p class="future-sub">School of Public Health · Sports Marketing &amp; Management</p>
+          </div>
         </div>
         <div class="future-progress-wrap">
           <div class="future-progress-label">Senior Year Complete</div>
@@ -456,38 +520,40 @@
         </div>
       </div>
 
+      <!-- CARDS -->
       <div class="future-grid">
 
-        <div class="future-card future-card-college">
+        <div class="future-card future-card-iu">
           <div class="future-card-icon">🎓</div>
-          <div class="future-card-label">College</div>
-          <div class="future-card-body">Pursuing Computer Science with a focus on design and human-computer interaction. Looking for programs where creativity meets code.</div>
-          <div class="future-card-tag">Fall 2026</div>
+          <div class="future-card-label">The School</div>
+          <div class="future-card-body">School of Public Health at IU Bloomington — a nationally ranked program with a strong sports management track. Majoring in Sports Marketing &amp; Management, where health, performance, and business all come together.</div>
+          <div class="future-card-tag">Bloomington, IN</div>
+        </div>
+
+        <div class="future-card future-card-sports-mkt">
+          <div class="future-card-icon">📊</div>
+          <div class="future-card-label">Sports Marketing</div>
+          <div class="future-card-body">Learning how brands, teams, and athletes connect with fans. From campaign strategy to sponsorships — building the skills to work at the intersection of sports and business.</div>
+          <div class="future-card-tag">The Major</div>
         </div>
 
         <div class="future-card future-card-dev">
           <div class="future-card-icon">🖥️</div>
-          <div class="future-card-label">Development Goals</div>
-          <div class="future-card-body">Build a SaaS product. Learn backend dev. Ship something that real people use daily.</div>
-          <div class="future-card-tag">Always Building</div>
-        </div>
-
-        <div class="future-card future-card-design">
-          <div class="future-card-icon">✨</div>
-          <div class="future-card-label">Dream Project</div>
-          <div class="future-card-body">A fully custom UI framework inspired by retro game consoles — Wii, GameCube, DS — rebuilt for the modern web.</div>
-          <div class="future-card-tag">In Progress</div>
+          <div class="future-card-label">Web + Tech Edge</div>
+          <div class="future-card-body">Most sports marketing grads can't build a website. I can. Combining a business degree with real dev skills to stand out — digital campaigns, fan experiences, and brand tech.</div>
+          <div class="future-card-tag">Unfair Advantage</div>
         </div>
 
         <div class="future-card future-card-sports">
           <div class="future-card-icon">🏒</div>
-          <div class="future-card-label">Athletics</div>
-          <div class="future-card-body">Ice Hockey Goalie and Lacrosse (Mid &amp; Attack) at Marlboro HS. Four years of varsity competition, assistant captain senior year. The discipline from the field carries straight to the screen.</div>
+          <div class="future-card-label">Life on the Field</div>
+          <div class="future-card-body">4 years as a Varsity Hockey Goalie and Lacrosse player at Marlboro HS. Assistant Captain senior year. The mindset, discipline, and team-first mentality from athletics carries into everything I do.</div>
           <div class="future-card-tag">Always Competing</div>
         </div>
 
       </div>
 
+      <!-- TIMELINE -->
       <div class="future-timeline">
         <div class="future-timeline-title">The Road Ahead</div>
         <div class="future-timeline-items">
@@ -511,7 +577,7 @@
             <div class="future-tl-dot"></div>
             <div class="future-tl-line"></div>
             <div class="future-tl-text">
-              <strong>Start College</strong>
+              <strong>Start at Indiana University — School of Public Health</strong>
               <span>Fall 2026</span>
             </div>
           </div>
@@ -519,15 +585,23 @@
             <div class="future-tl-dot"></div>
             <div class="future-tl-line"></div>
             <div class="future-tl-text">
-              <strong>Ship first real product</strong>
+              <strong>Land a sports industry internship</strong>
               <span>2027</span>
+            </div>
+          </div>
+          <div class="future-tl-item">
+            <div class="future-tl-dot"></div>
+            <div class="future-tl-line"></div>
+            <div class="future-tl-text">
+              <strong>Work in sports marketing for a team or brand</strong>
+              <span>2028–2030</span>
             </div>
           </div>
           <div class="future-tl-item">
             <div class="future-tl-dot"></div>
             <div class="future-tl-line future-tl-line-last"></div>
             <div class="future-tl-text">
-              <strong>???</strong>
+              <strong>Build something of my own</strong>
               <span>TBD — stay tuned</span>
             </div>
           </div>
