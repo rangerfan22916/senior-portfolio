@@ -27,7 +27,62 @@
         <span></span>
       </div>
     </div>
+    <button class="loading-skip"
+      onclick="(function(){const el=document.getElementById('loadingScreen'); if(!el) return; el.classList.add('fade-out'); setTimeout(()=>el.style.display='none',1000);})()">Skip</button>
   </div>
+
+  <script>
+    // Inline fallback: ensure loader always hides after ~8s
+    setTimeout(function () {
+      const el = document.getElementById('loadingScreen');
+      if (!el) return;
+      if (!el.classList.contains('fade-out')) el.classList.add('fade-out');
+      setTimeout(() => { try { el.style.display = 'none'; } catch (e) { } }, 1000);
+    }, 8000);
+  </script>
+
+  <script>
+    // Lightweight fallback UI handlers: update time/date and basic channel clicks
+    (function () {
+      try {
+        function updateFallbackTime() {
+          const t = document.querySelector('.time');
+          const d = document.querySelector('.date');
+          if (!t || !d) return;
+          const now = new Date();
+          const h = now.getHours() % 12 || 12;
+          const m = String(now.getMinutes()).padStart(2, '0');
+          const ap = now.getHours() >= 12 ? 'PM' : 'AM';
+          const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+          t.innerHTML = h + ':' + m + ' <span class="ampm">' + ap + '</span>';
+          d.textContent = days[now.getDay()] + ' ' + (now.getMonth() + 1) + '/' + now.getDate();
+        }
+        updateFallbackTime(); setInterval(updateFallbackTime, 1000);
+
+        function closeAllSubPages() {
+          document.querySelectorAll('.sub-page').forEach(p => { p.classList.remove('active'); p.style.display = 'none'; });
+          const mm = document.getElementById('mainMenu'); if (mm) mm.style.display = 'block';
+        }
+        function openFallbackPage(key) {
+          closeAllSubPages();
+          const el = document.getElementById(key + 'Page');
+          if (!el) return alert('Page not found: ' + key);
+          el.style.display = 'flex'; setTimeout(() => el.classList.add('active'), 10);
+          const mm = document.getElementById('mainMenu'); if (mm) mm.style.display = 'none';
+        }
+
+        window.addEventListener('DOMContentLoaded', function () {
+          document.querySelectorAll('.channel').forEach(c => c.addEventListener('click', function () {
+            if (c.classList.contains('empty')) return;
+            const p = c.dataset.page; if (p) openFallbackPage(p);
+          }));
+
+          document.querySelectorAll('.back-btn').forEach(b => b.addEventListener('click', function (e) { e.preventDefault(); closeAllSubPages(); }));
+          document.querySelectorAll('.settings-btn').forEach(b => b.addEventListener('click', () => openFallbackPage('settings')));
+        });
+      } catch (e) { console.error('fallback init failed', e); }
+    })();
+  </script>
 
   <!-- MAIN MENU -->
   <div class="wii-menu" id="mainMenu">
@@ -144,6 +199,18 @@
   </div>
 
   <!-- =====================
+       FEATURED PROJECTS PAGE
+  ===================== -->
+  <div class="sub-page" id="featuredProjectPage">
+    <div class="sub-header">
+      <a class="back-btn" href="#" onclick="closeSubPage();return false;">◀</a>
+      <div class="sub-title" id="featuredProjectTitle">Featured Projects</div>
+      <a class="visit-btn" id="featuredProjectVisitBtn" href="#" target="_blank" style="display:none">VISIT SITE ↗</a>
+    </div>
+    <div class="featured-project-body" id="featuredProjectBody"></div>
+  </div>
+
+  <!-- =====================
        PROJECT VIEWER
   ===================== -->
   <div class="sub-page" id="projectViewer">
@@ -171,7 +238,9 @@
         <p>Whether it's a collab, a question, or just saying hi — my inbox is always open.</p>
       </div>
       <div class="contact-cards">
-        <a class="contact-card" href="https://mail.google.com/mail/?view=cm&fs=1&to=lichtenthaldrew@gmail.com&su=Hello%20Drew&body=Hey%20Drew!" target="_blank">
+        <a class="contact-card"
+          href="https://mail.google.com/mail/?view=cm&fs=1&to=lichtenthaldrew@gmail.com&su=Hello%20Drew&body=Hey%20Drew!"
+          target="_blank">
           <div class="contact-card-icon">✉️</div>
           <div class="contact-card-info">
             <div class="contact-card-label">Email</div>
@@ -217,7 +286,9 @@
             <div class="skill-card-name">HTML &amp; CSS</div>
             <div class="skill-card-desc">Semantic markup, layouts, animations, responsive design</div>
           </div>
-          <div class="skill-bar-wrap"><div class="skill-bar" style="width:95%; background:#f97316;"></div></div>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar" style="width:95%; background:#f97316;"></div>
+          </div>
         </div>
 
         <div class="skill-card">
@@ -226,7 +297,9 @@
             <div class="skill-card-name">JavaScript</div>
             <div class="skill-card-desc">DOM manipulation, events, fetch, async logic</div>
           </div>
-          <div class="skill-bar-wrap"><div class="skill-bar" style="width:85%; background:#eab308;"></div></div>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar" style="width:85%; background:#eab308;"></div>
+          </div>
         </div>
 
         <div class="skill-card">
@@ -235,7 +308,9 @@
             <div class="skill-card-name">React</div>
             <div class="skill-card-desc">Components, hooks, state management, props</div>
           </div>
-          <div class="skill-bar-wrap"><div class="skill-bar" style="width:75%; background:#3b82f6;"></div></div>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar" style="width:75%; background:#3b82f6;"></div>
+          </div>
         </div>
 
         <div class="skill-card">
@@ -244,7 +319,9 @@
             <div class="skill-card-name">Git &amp; GitHub</div>
             <div class="skill-card-desc">Version control, commits, branches, repos</div>
           </div>
-          <div class="skill-bar-wrap"><div class="skill-bar" style="width:80%; background:#22c55e;"></div></div>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar" style="width:80%; background:#22c55e;"></div>
+          </div>
         </div>
 
         <div class="skill-card">
@@ -253,7 +330,9 @@
             <div class="skill-card-name">UI / UX Design</div>
             <div class="skill-card-desc">Wii-style interfaces, visual hierarchy, user experience</div>
           </div>
-          <div class="skill-bar-wrap"><div class="skill-bar" style="width:90%; background:#a855f7;"></div></div>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar" style="width:90%; background:#a855f7;"></div>
+          </div>
         </div>
 
         <div class="skill-card">
@@ -262,7 +341,9 @@
             <div class="skill-card-name">Figma</div>
             <div class="skill-card-desc">Wireframing, prototyping, component design</div>
           </div>
-          <div class="skill-bar-wrap"><div class="skill-bar" style="width:70%; background:#f43f5e;"></div></div>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar" style="width:70%; background:#f43f5e;"></div>
+          </div>
         </div>
 
         <div class="skill-card">
@@ -271,7 +352,9 @@
             <div class="skill-card-name">Responsive Design</div>
             <div class="skill-card-desc">Mobile-first layouts, media queries, fluid grids</div>
           </div>
-          <div class="skill-bar-wrap"><div class="skill-bar" style="width:88%; background:#0ea5e9;"></div></div>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar" style="width:88%; background:#0ea5e9;"></div>
+          </div>
         </div>
 
         <div class="skill-card">
@@ -280,7 +363,9 @@
             <div class="skill-card-name">Web Design</div>
             <div class="skill-card-desc">Full site builds, CTE Web Design Pathways Program</div>
           </div>
-          <div class="skill-bar-wrap"><div class="skill-bar" style="width:92%; background:#10b981;"></div></div>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar" style="width:92%; background:#10b981;"></div>
+          </div>
         </div>
 
       </div>
@@ -339,7 +424,8 @@
               <div class="resume-entry-role">Founder, President &amp; CEO</div>
               <ul class="resume-entry-list">
                 <li>Built &amp; maintain a professional website to promote services and showcase testimonials</li>
-                <li>Operate a local dog walking service with a loyal client base via word-of-mouth &amp; online marketing</li>
+                <li>Operate a local dog walking service with a loyal client base via word-of-mouth &amp; online
+                  marketing</li>
                 <li>Manage scheduling, pricing, client communication, and payment processing</li>
                 <li>Consistently receive 5-star reviews for reliability and exceptional care</li>
               </ul>
@@ -385,7 +471,8 @@
               </div>
               <div class="resume-entry-role">Teen Volunteer &amp; Active Board Member</div>
               <ul class="resume-entry-list">
-                <li>Assists with weekly programs providing social &amp; educational experiences for individuals with special needs</li>
+                <li>Assists with weekly programs providing social &amp; educational experiences for individuals with
+                  special needs</li>
                 <li>Organizes events, raises awareness, and advocates for inclusion</li>
                 <li>Annual mascot for Friendship Circle Walk</li>
               </ul>
@@ -515,7 +602,9 @@
         </div>
         <div class="future-progress-wrap">
           <div class="future-progress-label">Senior Year Complete</div>
-          <div class="future-progress-bar"><div class="future-progress-fill"></div></div>
+          <div class="future-progress-bar">
+            <div class="future-progress-fill"></div>
+          </div>
           <div class="future-progress-pct">87%</div>
         </div>
       </div>
@@ -526,28 +615,34 @@
         <div class="future-card future-card-iu">
           <div class="future-card-icon">🎓</div>
           <div class="future-card-label">The School</div>
-          <div class="future-card-body">School of Public Health at IU Bloomington — a nationally ranked program with a strong sports management track. Majoring in Sports Marketing &amp; Management, where health, performance, and business all come together.</div>
+          <div class="future-card-body">School of Public Health at IU Bloomington — a nationally ranked program with a
+            strong sports management track. Majoring in Sports Marketing &amp; Management, where health, performance,
+            and business all come together.</div>
           <div class="future-card-tag">Bloomington, IN</div>
         </div>
 
         <div class="future-card future-card-sports-mkt">
           <div class="future-card-icon">📊</div>
           <div class="future-card-label">Sports Marketing</div>
-          <div class="future-card-body">Learning how brands, teams, and athletes connect with fans. From campaign strategy to sponsorships — building the skills to work at the intersection of sports and business.</div>
+          <div class="future-card-body">Learning how brands, teams, and athletes connect with fans. From campaign
+            strategy to sponsorships — building the skills to work at the intersection of sports and business.</div>
           <div class="future-card-tag">The Major</div>
         </div>
 
         <div class="future-card future-card-dev">
           <div class="future-card-icon">🖥️</div>
           <div class="future-card-label">Web + Tech Edge</div>
-          <div class="future-card-body">Most sports marketing grads can't build a website. I can. Combining a business degree with real dev skills to stand out — digital campaigns, fan experiences, and brand tech.</div>
+          <div class="future-card-body">Most sports marketing grads can't build a website. I can. Combining a business
+            degree with real dev skills to stand out — digital campaigns, fan experiences, and brand tech.</div>
           <div class="future-card-tag">Unfair Advantage</div>
         </div>
 
         <div class="future-card future-card-sports">
           <div class="future-card-icon">🏒</div>
           <div class="future-card-label">Life on the Field</div>
-          <div class="future-card-body">4 years as a Varsity Hockey Goalie and Lacrosse player at Marlboro HS. Assistant Captain senior year. The mindset, discipline, and team-first mentality from athletics carries into everything I do.</div>
+          <div class="future-card-body">4 years as a Varsity Hockey Goalie and Lacrosse player at Marlboro HS. Assistant
+            Captain senior year. The mindset, discipline, and team-first mentality from athletics carries into
+            everything I do.</div>
           <div class="future-card-tag">Always Competing</div>
         </div>
 
@@ -668,6 +763,35 @@
       referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
   </div>
 
+  <!-- MINI GAME OVERLAY (Bubble Pop) -->
+  <div id="miniGameOverlay" style="display:none;">
+    <div class="mg-panel">
+      <div class="mg-header">
+        <div class="mg-title">Bubble Pop</div>
+        <button class="mg-close">✕</button>
+      </div>
+      <div class="mg-modes">
+        <button id="mg-mode-bubble" class="mg-mode active">Bubble</button>
+        <button id="mg-mode-pick" class="mg-mode">Pick</button>
+        <button id="mg-mode-whack" class="mg-mode">Whack</button>
+        <button id="mg-mode-simon" class="mg-mode">Simon</button>
+        <button id="mg-mode-tap" class="mg-mode">Tap</button>
+      </div>
+      <div class="mg-stats">
+        <div>Time: <span id="mg-timer">20</span>s</div>
+        <div>Score: <span id="mg-score">0</span></div>
+        <div>Best: <span id="mg-high">0</span></div>
+      </div>
+      <div id="mg-play-area"></div>
+      <div class="mg-footer">
+        <button id="mg-start" class="humanify-btn">Start Game</button>
+        <button id="mg-stop" class="humanify-btn">Stop</button>
+        <button id="mg-quit" class="humanify-btn">Quit</button>
+      </div>
+    </div>
+  </div>
+
   <script src="script.js"></script>
 </body>
+
 </html>

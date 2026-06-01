@@ -3,124 +3,107 @@
   "title": "Projects",
   "view": "projects",
   "default": "all",
+  "featured": [
+    {
+      "title": "RIP Replit",
+      "year": "Sophomore",
+      "description": "A nostalgic homepage celebrating my early web projects with a polished, retro-inspired layout built entirely in HTML and CSS during my first year in the Web Design Pathways Program.",
+      "skills": ["HTML", "CSS", "Visual Hierarchy", "Retro Layout Design"],
+      "reflection": "This was one of my first serious CSS projects. Balancing nostalgia with modern structure taught me that playfulness and usability don't have to compete — you can have both if you're intentional about spacing and typography.",
+      "screenshots": ["imgs/rip.png"],
+      "link": "imgs/rip.png"
+    },
+    {
+      "title": "Maple Leafs Site",
+      "year": "Junior",
+      "description": "A fan site dedicated to the Toronto Maple Leafs featuring team stats, player highlights, and a bold hockey-inspired visual design.",
+      "skills": ["HTML", "CSS", "Sports Branding", "Layout Design"],
+      "reflection": "Designing around an existing brand taught me how to work within color and identity constraints while still making something that feels original and exciting.",
+      "screenshots": [],
+      "link": "https://rangerfan22916.github.io/may-monthly/"
+    },
+    {
+      "title": "Little Bird Toys",
+      "year": "Junior",
+      "description": "A cheerful e-commerce-style toy store site with product cards, playful colors, and a family-friendly shopping experience.",
+      "skills": ["HTML", "CSS", "E-Commerce Layout", "UX Design"],
+      "reflection": "Building a product-focused site made me think carefully about how people browse and discover items — white space and clear hierarchy matter a lot when selling something.",
+      "screenshots": [],
+      "link": "https://rangerfan22916.github.io/june-monthly/"
+    },
+    {
+      "title": "Rock Paper Scissors",
+      "year": "Junior",
+      "description": "A fully playable browser game with score tracking, randomized computer logic, and smooth animated state transitions between rounds. Built with vanilla JS.",
+      "skills": ["JavaScript", "Game Logic", "CSS Animation", "Event Handling"],
+      "reflection": "Writing game logic cleanly forced me to think about state before touching the DOM. I learned to separate data from display — a principle I still apply in every project.",
+      "screenshots": [],
+      "link": "https://rangerfan22916.github.io/rockpaperscizzors/"
+    },
+    {
+      "title": "Client Website: HairByToni",
+      "year": "Senior",
+      "description": "A real client portfolio site built for a local hair stylist — featuring elegant spacing, bold brand colors, a full services section, and clear appointment contact info.",
+      "skills": ["Client Design", "Mobile-First", "Visual Consistency", "Brand Alignment"],
+      "reflection": "Designing around someone else's voice taught me to separate my personal taste from actual user need. The client had a clear personality — my job was to translate that into a site, not override it.",
+      "screenshots": ["imgs/Screenshot 2026-05-08 091402.png"],
+      "link": "https://rangerfan22916.github.io/HairbyToni/"
+    },
+    {
+      "title": "Indiana College Recruitment",
+      "year": "Senior",
+      "description": "A polished college recruitment website with a clean layout, clear calls-to-action, and modern content flow.",
+      "skills": ["HTML", "CSS", "Responsive Design", "Content Strategy"],
+      "reflection": "This project sharpened my ability to present achievements and goals clearly for a college audience.",
+      "screenshots": ["imgs/Screenshot 2026-05-08 091402.png"],
+      "link": "https://rangerfan22916.github.io/college-recruitment/"
+    },
+    {
+      "title": " Winter Shootout",
+      "year": "Senior",
+      "description": "A competitive sports event website for a hockey's greatest event, featuring old/new goalies, old/new players, and a bold arena-ready visual style.",
+      "skills": ["HTML", "CSS", "Event Site Design", "Sports Branding"],
+      "reflection": "Real-world event sites need to answer questions fast. This project pushed me to think about information architecture — what does someone need the moment they land on the page?",
+      "screenshots": [],
+      "link": "https://rangerfan22916.github.io/Winter-Holiday/"
+    }
+  ],
   "years": [
     {
       "id": "sophomore",
       "label": "Sophomore",
       "projects": [
-        {
-          "title": "RIP Replit",
-          "image": "imgs\rip.png",
-          "link": "imgs\rip.png"
-
-        }
+        { "title": "RIP Replit", "icon": "🖥️", "image": "imgs/rip.png", "link": "imgs/rip.png", "description": "Nostalgic retro homepage built in HTML & CSS." }
       ]
     },
     {
       "id": "junior",
       "label": "Junior",
       "projects": [
-        {
-          "title": "Summer Tainment",
-          "link": "https://rangerfan22916.github.io/summer-tainment-site/",
-          "image": ""
-        },
-        {
-          "title": "Enzo Ferrari Site",
-          "link": "https://rangerfan22916.github.io/Octobermonthlywebsite/index.html",
-          "image": ""
-        },
-        {
-          "title": "Mad Libs",
-          "link": "https://rangerfan22916.github.io/novembermonthlywebsite/",
-          "image": ""
-        },
-        {
-          "title": "Name Generator",
-          "link": "https://rangerfan22916.github.io/december-monthly/",
-          "image": ""
-        },
-        {
-          "title": "Rock Paper Scissors Game",
-          "link": "https://rangerfan22916.github.io/rockpaperscizzors/",
-          "image": ""
-        },
-        {
-          "title": "Presidential Site",
-          "link": "https://rangerfan22916.github.io/president-monthly/",
-          "image": ""
-
-        },
-         {
-          "title": "Hangman Game",
-          "link": "https://rangerfan22916.github.io/march-monthly/",
-          "image": ""
-          
-        },
-         {
-          "title": "Little Bird Toys",
-          "link": "https://rangerfan22916.github.io/june-monthly/",
-          "image": ""
-      },
-      {
-          "title": "Maple Leafs Site",
-          "link": "https://rangerfan22916.github.io/may-monthly/",
-          "image": ""
-          
-        },
-        {
-          "title": "halloween animation",
-          "link": "https://rangerfan22916.github.io/tca1-pt-2/",
-          "image": ""
-          
-        },
-        {
-          "title": "Magic 8 Ball",
-          "link": "https://rangerfan22916.github.io/custom8ball/",
-          "image": ""
-          
-        }
+        { "title": "Summer Tainment", "icon": "☀️", "link": "https://rangerfan22916.github.io/summer-tainment-site/", "description": "Summer events site with bold visuals and interactive nav." },
+        { "title": "Enzo Ferrari Site", "icon": "🏎️", "link": "https://rangerfan22916.github.io/Octobermonthlywebsite/index.html", "description": "Tribute site for Enzo Ferrari with cinematic design." },
+        { "title": "Mad Libs", "icon": "✏️", "link": "https://rangerfan22916.github.io/novembermonthlywebsite/", "description": "Interactive storytelling tool with animated results." },
+        { "title": "Name Generator", "icon": "✨", "link": "https://rangerfan22916.github.io/december-monthly/", "description": "Client-side naming tool with real-time JS feedback." },
+        { "title": "Rock Paper Scissors", "icon": "✊", "link": "https://rangerfan22916.github.io/rockpaperscizzors/", "description": "Browser game with score tracking and smooth animations." },
+        { "title": "Presidential Site", "icon": "🇺🇸", "link": "https://rangerfan22916.github.io/president-monthly/", "description": "Informational site about U.S. presidents." },
+        { "title": "Hangman Game", "icon": "🎯", "link": "https://rangerfan22916.github.io/march-monthly/", "description": "Classic word-guessing game built in JavaScript." },
+        { "title": "Little Bird Toys", "icon": "🐦", "link": "https://rangerfan22916.github.io/june-monthly/", "description": "Cheerful toy store site with product cards and playful design." },
+        { "title": "Maple Leafs Site", "icon": "🍁", "link": "https://rangerfan22916.github.io/may-monthly/", "description": "Fan site for the Toronto Maple Leafs with bold hockey branding." },
+        { "title": "Halloween Animation", "icon": "🎃", "link": "https://rangerfan22916.github.io/tca1-pt-2/", "description": "Spooky CSS animation showcase for Halloween." },
+        { "title": "Magic 8 Ball", "icon": "🎱", "link": "https://rangerfan22916.github.io/custom8ball/", "description": "Interactive Magic 8 Ball with custom responses." }
       ]
     },
     {
       "id": "senior",
       "label": "Senior",
       "projects": [
-        {
-          "title": "college recruitment site ",
-          "link": "https://rangerfan22916.github.io/college-recruitment/",
-          "image": ""
-        },
-        {
-          "title": "schedule app",
-          "link": "https://rangerfan22916.github.io/2.04---Schedule-Project/",
-          "image": ""
-        },
-        {
-          "title": "National park/Ancient wonders site",
-          "link": "https://rangerfan22916.github.io/NJIT-Project-1-Project/",
-          "image": ""
-        },
-        {
-          "title": "Movie Poster Gallery",
-          "link": "https://rangerfan22916.github.io/NJIT-Project-2-Movie-Poster-Gallery/",
-          "image": ""
-        },
-        {
-          "title": "Winter Holiday Site",
-          "link": "https://rangerfan22916.github.io/Winter-Holiday/",
-          "image": ""
-        },
-        {
-          "title": "college guide",
-          "link": "https://rangerfan22916.github.io/MRHS-Website-Design-Challenge/",
-          "image": ""
-        },
-        {
-          "title": "Client Website",
-          "link": "https://rangerfan22916.github.io/HairbyToni/",
-          "image": ""
-        }
+        { "title": "College Recruitment Site", "icon": "🎓", "link": "https://rangerfan22916.github.io/college-recruitment/", "description": "Professional recruitment site with modern layout and content flows." },
+        { "title": "Schedule App", "icon": "📅", "link": "https://rangerfan22916.github.io/2.04---Schedule-Project/", "description": "Interactive schedule management app." },
+        { "title": "National Park / Ancient Wonders", "icon": "🏔️", "link": "https://rangerfan22916.github.io/NJIT-Project-1-Project/", "description": "Immersive travel site with scenic imagery and structured storytelling." },
+        { "title": "Movie Poster Gallery", "icon": "🎬", "link": "https://rangerfan22916.github.io/NJIT-Project-2-Movie-Poster-Gallery/", "description": "Styled gallery of movie posters with hover effects." },
+        { "title": "Winter Holiday Site", "icon": "❄️", "link": "https://rangerfan22916.github.io/Winter-Holiday/", "description": "Festive holiday site with seasonal animations." },
+        { "title": "College Guide", "icon": "📖", "link": "https://rangerfan22916.github.io/MRHS-Website-Design-Challenge/", "description": "Guide site built for a web design challenge at MRHS." },
+        { "title": "Client Website: HairByToni", "icon": "💇", "link": "https://rangerfan22916.github.io/HairbyToni/", "description": "Real client portfolio site for a local hair stylist." }
       ]
     }
   ]
