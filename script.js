@@ -17,9 +17,120 @@ const skillsPage = document.getElementById("skillsPage");
 const resumePage = document.getElementById("resumePage");
 const futurePage = document.getElementById("futurePage");
 const settingsPage = document.getElementById("settingsPage");
+const settingsMusicStatus = document.getElementById("settingsMusicStatus");
+const settingsSfxBtn = document.getElementById("settingsSfxBtn");
+const settingsSfxStatus = document.getElementById("settingsSfxStatus");
+const settingsThemeSelect = document.getElementById("settingsThemeSelect");
+const settingsThemeStatus = document.getElementById("settingsThemeStatus");
+const settingsAnimBtn = document.getElementById("settingsAnimBtn");
+const settingsAnimStatus = document.getElementById("settingsAnimStatus");
+const settingsResetBtn = document.getElementById("settingsResetBtn");
+const settingsRandomThemeBtn = document.getElementById("settingsRandomThemeBtn");
 const mainMenu = document.getElementById("mainMenu");
 
 let projectData = null;
+let soundEffectsEnabled = true;
+let animationsEnabled = true;
+let selectedTheme = "classic";
+const USER_SETTINGS_KEY = "wiiPortfolioSettings";
+const themeMap = {
+  classic: { label: "Wii Classic Blue", class: "" },
+  green: { label: "Fresh Green", class: "theme-green" },
+  purple: { label: "Lavender Glow", class: "theme-purple" },
+};
+
+function applyTheme(theme) {
+  selectedTheme = themeMap[theme] ? theme : "classic";
+  document.body.classList.remove("theme-green", "theme-purple");
+  if (themeMap[selectedTheme].class) {
+    document.body.classList.add(themeMap[selectedTheme].class);
+  }
+}
+
+function updateSettingsUI() {
+  if (settingsMusicStatus) {
+    settingsMusicStatus.textContent = musicMuted ? "Muted" : "Playing";
+  }
+  if (settingsMuteBtn) {
+    settingsMuteBtn.textContent = musicMuted ? "Unmute" : "Mute";
+  }
+  if (settingsSfxStatus) {
+    settingsSfxStatus.textContent = soundEffectsEnabled ? "Enabled" : "Disabled";
+  }
+  if (settingsSfxBtn) {
+    settingsSfxBtn.textContent = soundEffectsEnabled ? "Disable" : "Enable";
+  }
+  if (settingsAnimStatus) {
+    settingsAnimStatus.textContent = animationsEnabled ? "Enabled" : "Disabled";
+  }
+  if (settingsAnimBtn) {
+    settingsAnimBtn.textContent = animationsEnabled ? "Disable" : "Enable";
+  }
+  if (settingsThemeStatus) {
+    settingsThemeStatus.textContent = themeMap[selectedTheme]?.label || themeMap.classic.label;
+  }
+  if (settingsThemeSelect) {
+    settingsThemeSelect.value = selectedTheme;
+  }
+}
+
+function saveSettings() {
+  try {
+    localStorage.setItem(
+      USER_SETTINGS_KEY,
+      JSON.stringify({
+        musicMuted,
+        soundEffectsEnabled,
+        animationsEnabled,
+        selectedTheme,
+      }),
+    );
+  } catch (e) {
+    console.warn("Could not save settings", e);
+  }
+}
+
+function loadSettings() {
+  try {
+    const saved = JSON.parse(localStorage.getItem(USER_SETTINGS_KEY) || "null");
+    if (saved) {
+      musicMuted = !!saved.musicMuted;
+      soundEffectsEnabled = saved.soundEffectsEnabled !== false;
+      animationsEnabled = saved.animationsEnabled !== false;
+      selectedTheme = saved.selectedTheme || "classic";
+      applyTheme(selectedTheme);
+      if (musicFrame) {
+        musicFrame.src = musicMuted ? mutedUrl : unmutedUrl;
+      }
+      if (muteBtn) {
+        muteBtn.textContent = musicMuted ? "🔇" : "🔊";
+      }
+    }
+  } catch (e) {
+    console.warn("Could not load settings", e);
+  }
+}
+
+function restoreDefaultSettings() {
+  musicMuted = false;
+  soundEffectsEnabled = true;
+  animationsEnabled = true;
+  selectedTheme = "classic";
+  applyTheme(selectedTheme);
+  if (musicFrame) musicFrame.src = unmutedUrl;
+  if (muteBtn) muteBtn.textContent = "🔊";
+  saveSettings();
+  updateSettingsUI();
+}
+
+function pickRandomTheme() {
+  const options = Object.keys(themeMap);
+  const choice = options[Math.floor(Math.random() * options.length)];
+  selectedTheme = choice;
+  applyTheme(choice);
+  saveSettings();
+  updateSettingsUI();
+}
 
 function getIconForTitle(title) {
   if (!projectData || !projectData.years) return "🖥️";
@@ -113,9 +224,51 @@ if (settingsMuteBtn) {
     musicMuted = !musicMuted;
     if (musicFrame) musicFrame.src = musicMuted ? mutedUrl : unmutedUrl;
     muteBtn.textContent = musicMuted ? "🔇" : "🔊";
-    settingsMuteBtn.textContent = musicMuted ? "Unmute" : "Mute";
+    saveSettings();
+    updateSettingsUI();
   });
 }
+
+if (settingsSfxBtn) {
+  settingsSfxBtn.addEventListener("click", () => {
+    soundEffectsEnabled = !soundEffectsEnabled;
+    saveSettings();
+    updateSettingsUI();
+  });
+}
+
+if (settingsThemeSelect) {
+  settingsThemeSelect.addEventListener("change", () => {
+    selectedTheme = settingsThemeSelect.value;
+    applyTheme(selectedTheme);
+    saveSettings();
+    updateSettingsUI();
+  });
+}
+
+if (settingsAnimBtn) {
+  settingsAnimBtn.addEventListener("click", () => {
+    animationsEnabled = !animationsEnabled;
+    document.body.classList.toggle("no-animations", !animationsEnabled);
+    saveSettings();
+    updateSettingsUI();
+  });
+}
+
+if (settingsResetBtn) {
+  settingsResetBtn.addEventListener("click", () => {
+    restoreDefaultSettings();
+  });
+}
+
+if (settingsRandomThemeBtn) {
+  settingsRandomThemeBtn.addEventListener("click", () => {
+    pickRandomTheme();
+  });
+}
+
+loadSettings();
+updateSettingsUI();
 
 /* ── PAGE DATA ── */
 const pageDataFiles = {
