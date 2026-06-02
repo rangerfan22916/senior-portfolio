@@ -21,6 +21,22 @@ const mainMenu = document.getElementById("mainMenu");
 
 let projectData = null;
 
+function getIconForTitle(title) {
+  if (!projectData || !projectData.years) return "🖥️";
+  for (const y of projectData.years) {
+    const p = (y.projects || []).find(
+      (pp) => pp.title && pp.title.trim() === title.trim(),
+    );
+    if (p && p.icon) return p.icon;
+  }
+  // fallback: try to match featured items
+  const feat = (projectData.featured || []).find(
+    (f) => f.title && f.title.trim() === title.trim(),
+  );
+  if (feat && feat.icon) return feat.icon || "🖥️";
+  return "🖥️";
+}
+
 /* ── CLOCK ── */
 function updateTime() {
   const now = new Date();
@@ -158,6 +174,7 @@ function initFeaturedProjects() {
 
 function buildFeaturedChannels(featured) {
   const slots = Array.from(document.querySelectorAll(".channel.empty"));
+
   yearCfg.forEach((cfg, i) => {
     const slot = slots[i];
     if (!slot) return;
@@ -168,25 +185,9 @@ function buildFeaturedChannels(featured) {
     slot.style.borderColor = "rgba(0,0,0,0.07)";
     slot.innerHTML = `
       <div class="fyc-inner">
-        <div class="fyc-head">
-          <span class="fyc-dot" style="background:${cfg.dot};box-shadow:0 0 7px ${cfg.dot}99;"></span>
-          <span class="fyc-label" style="color:${cfg.accent};">${cfg.label}</span>
-          <span class="fyc-badge" style="background:${cfg.light};color:${cfg.accent};">${items.length} projects</span>
+        <div class="fyc-cover" style="color:${cfg.accent};">
+          <div class="fyc-cover-year">${cfg.label}</div>
         </div>
-        <div class="fyc-list">
-          ${items
-            .map(
-              (item, ri) => `
-            <div class="fyc-row" data-title="${encodeURIComponent(item.title)}" style="--d:${ri * 0.06}s;">
-              <span class="fyc-row-dot" style="background:${cfg.dot};"></span>
-              <span class="fyc-row-title">${item.title}</span>
-              <span class="fyc-row-arr" style="color:${cfg.accent};">›</span>
-            </div>
-          `,
-            )
-            .join("")}
-        </div>
-        <div class="fyc-hint" style="color:${cfg.accent};">View all →</div>
       </div>`;
 
     /* whole channel → open featured page for that year */
@@ -234,19 +235,31 @@ function openFeaturedPage(yearLabel, allFeatured, scrollToTitle) {
           (item, idx) => `
         <div class="fp-card" id="fpc-${idx}" data-title="${encodeURIComponent(item.title)}" style="--card-accent:${cfg.accent};--card-light:${cfg.light};--card-dot:${cfg.dot};">
           <div class="fp-card-preview-wrap">
-            ${
-              item.link && item.link.startsWith("http")
-                ? `<iframe class="fp-card-iframe" src="${item.link}" title="${item.title}" loading="lazy" scrolling="no"></iframe>`
-                : item.screenshots && item.screenshots[0]
-                  ? `<img class="fp-card-img" src="${item.screenshots[0]}" alt="${item.title}">`
-                  : `<div class="fp-card-placeholder"><span>${item.title[0]}</span></div>`
-            }
+            ${(() => {
+              const specialIframeTitles = [
+                "Client Website: HairByToni",
+                "Indiana College Recruitment",
+              ];
+              const prefersIframe =
+                specialIframeTitles.includes(item.title) &&
+                item.link &&
+                item.link.startsWith("http");
+              if (prefersIframe) {
+                return `<iframe class="fp-card-iframe" src="${item.link}" title="${item.title}" loading="lazy" scrolling="no"></iframe>`;
+              }
+              return item.screenshots && item.screenshots[0]
+                ? `<img class="fp-card-img" src="${item.screenshots[0]}" alt="${item.title}">`
+                : item.link && item.link.startsWith("http")
+                  ? `<iframe class="fp-card-iframe" src="${item.link}" title="${item.title}" loading="lazy" scrolling="no"></iframe>`
+                  : `<div class="fp-card-placeholder"><span>${item.title[0] || "?"}</span></div>`;
+            })()}
             <div class="fp-card-overlay">
               <a class="fp-card-visit" href="${item.link || "#"}" target="_blank" ${!item.link || item.link === "#" ? 'style="display:none"' : ""}>Visit Site ↗</a>
               <button class="fp-card-details-btn" data-idx="${idx}">About This Project</button>
             </div>
           </div>
           <div class="fp-card-footer">
+            <div class="fp-card-icon">${getIconForTitle(item.title)}</div>
             <div class="fp-card-name">${item.title}</div>
             <button class="fp-card-details-btn fp-card-details-inline" data-idx="${idx}" style="color:${cfg.accent};border-color:${cfg.dot}44;background:${cfg.light};">Details ›</button>
           </div>
@@ -402,7 +415,10 @@ const bubblePalette = {
 
 function renderWiiBubbles(projects) {
   projectsGrid.innerHTML = "";
-  projectsGrid.className = "wii-bubble-grid";
+  projectsGrid.className =
+    projects.length === 1
+      ? "wii-bubble-grid single-bubble-grid"
+      : "wii-bubble-grid";
 
   projects.forEach((p, i) => {
     const pal = bubblePalette[p.yearLabel] || bubblePalette.Senior;
@@ -593,6 +609,25 @@ document
   .querySelector(".settings-btn")
   .addEventListener("click", () => openPage("settings"));
 initFeaturedProjects();
+
+/* Side arrow: cycle selected channel to the next non-empty channel */
+const pageArrowEl = document.querySelector(".page-arrow");
+if (pageArrowEl) {
+  pageArrowEl.style.cursor = "pointer";
+  pageArrowEl.addEventListener("click", () => {
+    const channelList = Array.from(document.querySelectorAll(".channel"));
+    if (!channelList.length) return;
+    let idx = channelList.findIndex((c) => c.classList.contains("selected"));
+    const start = idx >= 0 ? idx : -1;
+    for (let i = 1; i <= channelList.length; i++) {
+      const cand = channelList[(start + i) % channelList.length];
+      if (!cand.classList.contains("empty")) {
+        cand.click();
+        break;
+      }
+    }
+  });
+}
 
 /* ── MINI GAME: Bubble Pop ── */
 const miniGameOverlay = document.getElementById("miniGameOverlay");

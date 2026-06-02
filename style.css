@@ -188,6 +188,21 @@ button:focus, a:focus, .back-btn:focus, .envelope:focus, .channel:focus, .projec
   font-size: 72px; color: #d9d9d9;
 }
 
+/* Featured rows inside the small year cards */
+.fyc-list { display:flex; flex-direction:column; gap:8px; margin-top:8px; }
+.fyc-row { display:flex; align-items:center; gap:8px; padding:8px 10px; border-radius:10px; cursor:pointer; transition: .12s ease all; }
+.fyc-row:hover { background: rgba(255,255,255,0.6); transform: translateX(6px); }
+.fyc-row-icon { width:28px; height:28px; display:inline-flex; align-items:center; justify-content:center; font-size:18px; margin-right:6px; }
+.fyc-row-dot { width:8px; height:8px; border-radius:50%; display:inline-block; margin-right:8px; }
+.fyc-row-title { flex:1; text-align:left; font-weight:700; color:#264a63; }
+.fyc-row-arr { font-weight:800; }
+.fyc-hint { font-size:11px; font-weight:700; opacity:0.45; text-align:right; flex-shrink:0; }
+
+/* Plain cover for featured channels on the home screen */
+.fyc-inner { height: 100%; display:flex; align-items:center; justify-content:center; padding: 12px; box-sizing: border-box; }
+.fyc-cover { width: 100%; height: auto; display:flex; align-items:center; justify-content:center; border-radius: 0; padding: 0; box-sizing: border-box; }
+.fyc-cover-year { font-size: 36px; font-weight: 900; letter-spacing: .5px; text-transform: uppercase; }
+
 /* =========================
    CHANNEL GRID
 ========================= */
@@ -228,17 +243,17 @@ button:focus, a:focus, .back-btn:focus, .envelope:focus, .channel:focus, .projec
 
 /* ---- ABOUT ME CHANNEL — contain + matching background ---- */
 .about-me-channel {
-  padding: 0;
-  background: #6b93ef
-
-; /* matches Mii image background so no white shows */
+  padding: 20px;
+  background: #6b93ef; /* matches Mii image background so no white shows */
+  border-radius: 20px;
 }
 .about-me-channel .channel-cover-img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: contain; /* show whole Mii without heavy cropping */
   object-position: center;
-  border-radius: 18px;
+  border-radius: 12px;
+  padding: 10px; box-sizing: border-box;
 }
 .channel-label-overlay {
   position: absolute; bottom: 0; left: 0; right: 0;
@@ -315,6 +330,19 @@ button:focus, a:focus, .back-btn:focus, .envelope:focus, .channel:focus, .projec
   width: 96%; height: 88px;
   display: flex; align-items: flex-end; justify-content: space-between;
   padding: 0 18px; z-index: 20;
+}
+.channel-grid .about-me-channel {
+  grid-column: 2 / span 2;
+  align-self: center;
+  justify-self: center;
+  margin-top: 8px;
+  z-index: 5;
+  width: calc(50% - 11px); /* make the tile the width of a single column while spanning two columns */
+  box-sizing: border-box;
+}
+.channel-grid .about-me-channel .channel-cover-img { width:100%; height:100%; object-fit:contain; border-radius:12px; padding:10px; box-sizing:border-box; }
+@media (max-width: 900px) {
+  .channel-grid .about-me-channel { grid-column: auto; align-self: center; margin-top: 0; width: auto; }
 }
 .remote-btn, .envelope {
   width: 64px; height: 64px; border-radius: 50%;
@@ -1142,19 +1170,20 @@ button:focus, a:focus, .back-btn:focus, .envelope:focus, .channel:focus, .projec
   overflow: hidden;
   background: #f0f6ff;
   flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  padding: 12px; box-sizing: border-box;
 }
-.fp-card-iframe {
+.fp-card-iframe,
+.fp-card-img {
   width: 100%;
   height: 100%;
-  transform: none;
-  transform-origin: top left;
-  border: none;
-  pointer-events: none;
-}
-.fp-card-img {
-  width: 100%; height: 100%;
-  object-fit: cover; object-position: top;
-  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  object-position: center;
+  border: none; display: block;
+  border-radius: 12px; box-sizing: border-box;
+  background: transparent;
 }
 .fp-card-placeholder {
   width:100%; height:100%;
@@ -1199,13 +1228,10 @@ button:focus, a:focus, .back-btn:focus, .envelope:focus, .channel:focus, .projec
 
 /* card footer */
 .fp-card-footer {
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 14px 18px; gap: 10px;
-  background: #fff;
+  display: flex; align-items: center; padding: 14px 18px; gap: 12px; background: #fff;
 }
-.fp-card-name {
-  font-size: 16px; font-weight: 700; color: #1e3248; line-height: 1.2;
-}
+.fp-card-icon { width:44px; height:44px; border-radius:10px; display:inline-flex; align-items:center; justify-content:center; font-size:20px; background:var(--card-light,#fff); color:var(--card-accent,#223047); border:2px solid rgba(0,0,0,.04); flex-shrink:0; }
+.fp-card-name { font-size: 16px; font-weight: 700; color: #1e3248; line-height: 1.2; flex:1; }
 .fp-card-details-inline {
   font-size: 13px; font-weight: 700;
   padding: 7px 16px; border-radius: 999px;
@@ -1304,6 +1330,22 @@ button:focus, a:focus, .back-btn:focus, .envelope:focus, .channel:focus, .projec
   align-items: stretch;
 }
 
+.wii-bubble-grid.single-bubble-grid {
+  grid-template-columns: 1fr;
+  justify-items: center;
+}
+
+.wii-bubble-grid.single-bubble-grid .wii-bubble {
+  max-width: 520px;
+  min-height: auto;
+  max-height: 520px;
+}
+
+.wii-bubble-grid.single-bubble-grid .wb-preview {
+  aspect-ratio: 16 / 10;
+  min-height: 200px;
+}
+
 .wii-bubble {
   min-height: 380px;
   height: 100%;
@@ -1349,15 +1391,24 @@ button:focus, a:focus, .back-btn:focus, .envelope:focus, .channel:focus, .projec
   aspect-ratio: 16 / 9;
   min-height: 320px;
   background: #eef5ff;
+  display: flex; align-items: center; justify-content: center;
+  padding: 14px; box-sizing: border-box;
 }
 .fp-card-iframe,
 .fp-card-img {
-  width: 100%;
-  height: 100%;
-  border: none;
-  object-fit: cover;
-  display: block;
+  width: 100%; height: 100%;
+  max-width: 100%; max-height: 100%;
+  border: none; display: block;
+  object-fit: contain; object-position: center;
+  border-radius: 14px; box-sizing: border-box;
 }
+
+/* Plain year cover for featured cards */
+.fp-card-plain-cover {
+  width: 100%; height: 100%; display:flex; align-items:center; justify-content:center;
+  border-radius: 12px; padding: 12px; box-sizing: border-box;
+}
+.fp-cover-year { font-size: 40px; font-weight: 900; letter-spacing: 1px; color: inherit; }
 .fp-card-placeholder {
   width: 100%;
   min-height: 240px;

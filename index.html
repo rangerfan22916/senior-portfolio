@@ -98,11 +98,7 @@
 
     <div class="channel-grid">
 
-      <!-- ABOUT ME — profile photo, not zoomed -->
-      <div id="aboutChannel" class="channel selected about-me-channel" data-page="about">
-        <img src="imgs/Screenshot 2026-05-08 091402.png" class="channel-cover-img">
-        <div class="channel-label-overlay">ABOUT ME</div>
-      </div>
+      <!-- ABOUT ME — profile photo (moved to bottom bar) -->
 
       <!-- PROJECTS -->
       <div class="channel channel-projects" data-page="projects">
@@ -147,12 +143,19 @@
       <div class="channel empty"></div>
       <div class="channel empty"></div>
 
+      <!-- ABOUT ME centered under the bubbles (same size as other channels) -->
+      <div id="aboutChannel" class="channel selected about-me-channel" data-page="about">
+        <img src="imgs/Screenshot 2026-05-08 091402.png" class="channel-cover-img">
+        <div class="channel-label-overlay">ABOUT ME</div>
+      </div>
+
     </div>
 
     <div class="wave-bottom"></div>
 
     <div class="bottom-bar">
       <div class="remote-btn">🎮</div>
+
       <div class="bottom-center">
         <div class="time">12:00 <span class="ampm">AM</span></div>
         <div class="date">Fri 1/1</div>
@@ -180,7 +183,7 @@
   <div class="sub-page" id="projectsPage">
     <div class="sub-header">
       <a class="back-btn" href="#" onclick="closeSubPage();return false;">◀</a>
-      <div class="sub-title">PROJECTS</div>
+      <div class="sub-title"> ALL PROJECTS</div>
     </div>
     <div class="project-tabs" id="projectTabs"></div>
     <div class="projects-grid" id="projectsGrid"></div>
@@ -665,7 +668,7 @@
             <div class="future-tl-line"></div>
             <div class="future-tl-text">
               <strong>Graduate Marlboro HS</strong>
-              <span>June 2026</span>
+              <span>June 25, 2026</span>
             </div>
           </div>
           <div class="future-tl-item">
@@ -673,7 +676,7 @@
             <div class="future-tl-line"></div>
             <div class="future-tl-text">
               <strong>Start at Indiana University — School of Public Health</strong>
-              <span>Fall 2026</span>
+              <span>August 24, 2026</span>
             </div>
           </div>
           <div class="future-tl-item">
@@ -681,7 +684,7 @@
             <div class="future-tl-line"></div>
             <div class="future-tl-text">
               <strong>Land a sports industry internship</strong>
-              <span>2027</span>
+              <span>October 1, 2026</span>
             </div>
           </div>
           <div class="future-tl-item">
@@ -689,7 +692,7 @@
             <div class="future-tl-line"></div>
             <div class="future-tl-text">
               <strong>Work in sports marketing for a team or brand</strong>
-              <span>2028–2030</span>
+              <span>2030</span>
             </div>
           </div>
           <div class="future-tl-item">
@@ -697,7 +700,7 @@
             <div class="future-tl-line future-tl-line-last"></div>
             <div class="future-tl-text">
               <strong>Build something of my own</strong>
-              <span>TBD — stay tuned</span>
+              <span>2030</span>
             </div>
           </div>
         </div>
